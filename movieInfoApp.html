@@ -18,15 +18,22 @@
                     <fieldset>
                         <legend style=" font-family: sans-serif;">編集素材のインターネット配信</legend>
                         <div>
-                            <input type="radio" id="internetAllOK" name="internet" value="※全編インターネットＯＫ" />
+                            <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet"
+                                value="※全編インターネットＯＫ" />
                             <label for="internetAllOK" style="font-family: sans-serif;">全編インターネットＯＫ</label>
 
-                            <input type="radio" id="partlyInternetNG" name="internet" value="※一部インターネットＮＧ" />
+                            <input type="radio" id="partlyInternetNG" name="upperRadioButtonsInternet"
+                                value="※一部インターネットＮＧ" />
                             <label for="partlyInternetNG" style="font-family: sans-serif;">一部インターネットＮＧ</label>
 
-                            <input type="radio" id="internetAllNG" name="internet" value="※全編インターネットＮＧ" />
+                            <input type="radio" id="internetAllNG" name="upperRadioButtonsInternet"
+                                value="※全編インターネットＮＧ" />
                             <label for="internetAllNG" style="font-family: sans-serif;">全編インターネットＮＧ</label>
 
+                        </div>
+                        <div style="text-align: right;margin:0 50px 0 0;">
+                            <button type="button" class="upperSubmitButton"
+                                style="padding:5px 10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;display: inline;;">決定・上書き→→</button>
                         </div>
                     </fieldset>
                 </form>
@@ -47,13 +54,16 @@
                         </div>
 
                         <!-- movie arrival date -->
-                        <div style=" display:flex; margin: 0 0 20px 0">
+                        <div style=" display:flex; align-items: center; margin: 0 0 20px 0">
                             <label for="date" style="font-family: sans-serif;">入稿日</label>
                             <input type="date" class="registerDate" style="height:1.5em; width: 150px;"></input>
+                            <p id="inputPromptText"
+                                style="display:inline; font-family: sans-serif;color:blue; margin:0 0 0 20px;">
+                                素材情報を入力してください！</p>
                         </div>
 
                         <!-- select movie genre -->
-                        <div style="display: flex; margin: 0 0 20px 0">
+                        <div style=" display: flex; margin: 0 0 20px 0">
                             <!-- <div style="display:flex; margin:0 30px 0 0;"> -->
                             <label style="margin: 0 5px 0 0; font-family: sans-serif;">入稿先</label>
                             <select class="submissionDestination" name="choice" style="height:2em;">
@@ -193,6 +203,7 @@
         <button type="button" class="clearAllButton"
             style="margin:30px 0 0 0;padding:10px 100px; background-color:rgba(0, 153, 54, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;">全てクリア</button>
     </div>
+
     <script>
         //Internet distribution condition of the entire video image
         document.addEventListener('DOMContentLoaded', function () {
@@ -209,6 +220,8 @@
             var submissionDestination = document.querySelector('.submissionDestination');
             var submitButton = document.querySelector('.submitButton');
 
+            var inputPromptText = document.querySelector('#inputPromptText');
+
             var copyRight = "";
             var thirdPartyValue;
             var copyRightInput = document.querySelector("#copyrightInput");
@@ -224,7 +237,6 @@
 
             // create new div element
             var newDiv = document.createElement("div");
-            // var movieInfo = document.querySelector("#movieInfo")
             newDiv.className = "eachSozai" + counter;
             var eachMovieInfo = document.querySelector(".eachMovieInfo");
             eachMovieInfo.appendChild(newDiv);
@@ -236,17 +248,47 @@
             // variables for formattedDeliverDate, default value is "none"
             var formattedDeliverDate = ""
 
-            radioButtons.forEach(function (radioButton) {
-                radioButton.addEventListener('change', function () {
-                    if (this.checked) {
-                        sozai.innerText = this.value;
-                    };
-                });
+            var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
+            var internetAccess = '';
+
+            upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
+                upperRadioButtonInternet.addEventListener('change', function () {
+                    internetAccess = this.value;
+                })
             });
 
-            //movie title
+            var upperSubmitButton = document.querySelector('.upperSubmitButton');
+            upperSubmitButton.addEventListener('click', function () {
+                sozai.innerHTML = `
+                ${internetAccess}
+                `
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //assign movie title text to variable
             movieDescription.addEventListener('change', function () {
                 movieDescriptionText = this.value;
+
+                // hide inputPromptText when the text is entered
+                inputPromptText.style.display = 'none'; // 非表示
+
             })
 
             //movie register date
@@ -503,6 +545,9 @@
                 deliverDateContainer.value = '';
                 deliverDateContainer.style.display = 'none';
 
+                // display inputPromptText on the left side when the text is entered
+                inputPromptText.style.display = 'inline';
+
                 counter++;
 
                 // eachSozaiクラスを持つ要素を取得
@@ -536,6 +581,7 @@
                 <br>
                 <p style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >◾️${movieDescriptionText}</p>
                 <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</p>
+
                 <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestination.value}</p>
                 <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${selectedNumber}</p>
 
