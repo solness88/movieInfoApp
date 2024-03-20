@@ -16,8 +16,8 @@
             <div>
                 <form>
                     <fieldset>
-                        <legend style=" font-family: sans-serif;">編集素材のインターネット配信</legend>
-                        <div>
+                        <legend style=" font-family: sans-serif;">編集素材全体のインターネット配信・特記事項</legend>
+                        <div style="margin: 10px 0 0 0;">
                             <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet"
                                 value="※全編インターネットＯＫ" />
                             <label for="internetAllOK" style="font-family: sans-serif;">全編インターネットＯＫ</label>
@@ -31,6 +31,24 @@
                             <label for="internetAllNG" style="font-family: sans-serif;">全編インターネットＮＧ</label>
 
                         </div>
+
+
+                        <div style="margin:20px 0;">
+                            <label for="name" style="font-family: sans-serif;">特記事項</label>
+
+                            <input type="text" class="specialNotes" name="name" size="50"
+                                style="width:20em; height:1.5em; font-size:1.2em;">
+                        </div>
+
+
+
+
+
+
+
+
+
+
                         <div style="text-align: right;margin:0 50px 0 0;">
                             <button type="button" class="upperSubmitButton"
                                 style="padding:5px 10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;display: inline;;">決定・上書き→→</button>
@@ -128,14 +146,12 @@
                         </div>
 
                         <!-- movie deliver date -->
-                        <!-- start -->
                         <div style="display:none; margin: 0 0 20px 0;" class="deliverDateContainer">
                             <label for="date" style="font-family: sans-serif;">配信日：</label>
                             <input type="date" class="deliverDate"></input>
                         </div>
 
                         <!-- radio buttons asking for whether each movie needs courtesy or not-->
-                        <!-- start -->
                         <div>
                             <input type="radio" id="noCredit" name="askCourtesy" value="" 　style="margin:0 0 20px 0;"
                                 checked />
@@ -154,7 +170,6 @@
                         </div>
 
                         <!-- radio buttons asking for each movie internet distribution-->
-                        <!-- start -->
                         <div>
                             <input type="radio" id="internetOK" name="eachMovieInternet" value=""
                                 　style="margin:0 0 20px 0;" checked />
@@ -257,18 +272,25 @@
                 })
             });
 
+
+
+            //////////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////
+            //assign movie title text to variable
+            var movieSpecialNotes
+            var specialNotes = document.querySelector('.specialNotes');
+            specialNotes.addEventListener('change', function () {
+                movieSpecialNotes = this.value;
+            })
+
+
             var upperSubmitButton = document.querySelector('.upperSubmitButton');
             upperSubmitButton.addEventListener('click', function () {
                 sozai.innerHTML = `
-                ${internetAccess}
-                `
+                <p style="margin:0;">${internetAccess}</p>
+                <p style="margin:0;">${movieSpecialNotes}</p>
+               `
             });
-
-
-
-
-
-
 
 
 
