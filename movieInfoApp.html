@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>素材情報作成くん</title>
+</head>
+
+<body>
+
+    <div style="display:flex; justify-content:space-around" ;>
+        <section>
+
+            <!-- Ask for internet distribution availability -->
+            <div>
+                <form>
+                    <fieldset>
+                        <legend style=" font-family: sans-serif;">編集素材のインターネット配信</legend>
+                        <div>
+                            <input type="radio" id="internetAllOK" name="internet" value="※全編インターネットＯＫ" />
+                            <label for="internetAllOK" style="font-family: sans-serif;">全編インターネットＯＫ</label>
+
+                            <input type="radio" id="partlyInternetNG" name="internet" value="※一部インターネットＮＧ" />
+                            <label for="partlyInternetNG" style="font-family: sans-serif;">一部インターネットＮＧ</label>
+
+                            <input type="radio" id="internetAllNG" name="internet" value="※全編インターネットＮＧ" />
+                            <label for="internetAllNG" style="font-family: sans-serif;">全編インターネットＮＧ</label>
+
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <!-- Used image info -->
+            <div style="margin:20px 0 0 0;">
+                <form>
+                    <fieldset>
+                        <legend style="font-family: sans-serif;">個別の使用素材</legend>
+
+                        <!-- Movie title -->
+                        <div style="margin:0 0 20px 0;">
+                            <label for="name" style="font-family: sans-serif;">使った素材内容</label>
+
+                            <input type="text" class="movieDescription" name="name" size="50"
+                                style="width:20em; height:1.5em; font-size:1.2em;">
+                        </div>
+
+                        <!-- movie arrival date -->
+                        <!-- start -->
+                        <div style=" display:flex; margin: 0 0 20px 0">
+                            <label for="date" style="font-family: sans-serif;">入稿日</label>
+                            <input type="date" class="registerDate" style="height:1.5em; width: 150px;"></input>
+                        </div>
+
+                        <!-- select movie genre -->
+                        <div style="display: flex; margin: 0 0 20px 0">
+                            <!-- <div style="display:flex; margin:0 30px 0 0;"> -->
+                            <label style="margin: 0 5px 0 0; font-family: sans-serif;">入稿先</label>
+                            <select class="submissionDestination" name="choice" style="height:2em;">
+                                <option value="国際" selected style="font-family: sans-serif;">国際</option>
+                                <option value="政治" style="font-family: sans-serif;">政治</option>
+                                <option value="経済" style="font-family: sans-serif;">経済</option>
+                                <option value="社会" style="font-family: sans-serif;">社会</option>
+                                <option value="NN" style="font-family: sans-serif;">ＮＮ</option>
+                            </select>
+                            <!-- </div> -->
+
+                            <!-- select register number create 300 using JavaScript for loop -->
+                            <div style="display:flex;">
+                                <label for="submissionNumInput"
+                                    style="margin: 0 0 0 20px;font-family: sans-serif;">入稿番号</label>
+                                <input list="submissionNum" id="submissionNumInput" name="submissionNumInput" />
+                                <datalist id="submissionNum" name="choice"></datalist>
+                            </div>
+                        </div>
+
+                        <div style="margin:0 0 20px 0;">
+                            <label for="name" style="font-family: sans-serif;">素材番号</label>
+                            <input type="text" class="movieNum" name="name" size="30" />
+                        </div>
+
+                        <!-- copyright -->
+                        <div style="display: flex; margin: 0 0 20px 0">
+                            <div style="display:flex; margin:0 30px 0 0;">
+                                <label for="copyrightInput" style="font-family: sans-serif;">版権</label>
+                                <input list="copyright" id="copyrightInput" name="copyrightInput">
+                                <datalist id="copyright" name="choice" class="copyRight">
+                                    <option value="NNN" id="NNN"></option>
+                                    <option value="RTV" id="RTV"></option>
+                                    <option value="AP"></option>
+                                    <option value="RTV第三者素材" id="RTV3rdParty"></option>
+                                    <option value="AP第三者素材" id="AP3rdParty"></option>
+                                    <option value="NBC" id="NBC"></option>
+                                    <option value="SBS" id="SBS"></option>
+                                    <option value="CCTV" id="CCTV"></option>
+                                </datalist>
+                            </div>
+
+                            <!-- 第三者素材の入力・選択 -->
+                            <div style="display: none;" class="thirdPartySelection">
+                                <label for="thirdPartyInput" style="font-family: sans-serif;">第三者素材を入力</label>
+                                <input list="thirdParty" id="thirdPartyInput" name="thirdPartyInput">
+                                <datalist id="thirdParty" name="choice" class="thirdParty">
+                                    <option selected value=''></option>
+                                    <option value="NBC" class="thirdPartyAlt" style="font-family: sans-serif;">NBC
+                                    </option>
+                                    <option value="BBC" class="thirdPartyAlt" style="font-family: sans-serif;">BBC
+                                    </option>
+                                    <option value="CNN" class="thirdPartyAlt" style="font-family: sans-serif;">CNN
+                                    </option>
+                                    <option value="TV GLOBO" class="thirdPartyAlt" style="font-family: sans-serif;">
+                                        TV
+                                        GLOBO</option>
+                                    <option value="CCTV" class="thirdPartyAlt" style="font-family: sans-serif;">CCTV
+                                    </option>
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <!-- movie deliver date -->
+                        <!-- start -->
+                        <div style="display:none; margin: 0 0 20px 0;" class="deliverDateContainer">
+                            <label for="date" style="font-family: sans-serif;">配信日：</label>
+                            <input type="date" class="deliverDate"></input>
+                        </div>
+
+                        <!-- radio buttons asking for whether each movie needs courtesy or not-->
+                        <!-- start -->
+                        <div>
+                            <input type="radio" id="noCredit" name="askCourtesy" value="" 　style="margin:0 0 20px 0;"
+                                checked />
+                            <label for="noCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">クレジット不要</label>
+
+                            <input type="radio" id="mustCredit" name="askCourtesy" value="※要クレジット"
+                                style="margin:0 0 20px 10px;" />
+                            <label for="mustCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">要クレジット</label>
+                        </div>
+
+                        <!-- credit text -->
+                        <!-- start -->
+                        <div class="creditTextContainer" style="display: none; margin:0 0 30px 0;">
+                            <label for="name" style="font-family: sans-serif;">クレジット表記</label>
+                            <input type="text" id="creditText" name="name" size="50" />
+                        </div>
+
+                        <!-- radio buttons asking for each movie internet distribution-->
+                        <!-- start -->
+                        <div>
+                            <input type="radio" id="internetOK" name="eachMovieInternet" value=""
+                                　style="margin:0 0 20px 0;" checked />
+                            <label for="internetOK" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットOK</label>
+
+                            <input type="radio" id="internetNG" name="eachMovieInternet" value="インターネットNG"
+                                style="margin:0 0 20px 10px;" />
+                            <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットNG</label>
+                        </div>
+
+                        <script>
+                            var radioButtonsInternet = document.querySelectorAll('input[type="radio"][name="eachMovieInternet"]');
+                            var internetAvailability = '';
+
+                            radioButtonsInternet.forEach(function (radioButtonInternet) {
+                                radioButtonInternet.addEventListener('change', function () {
+                                    internetAvailability = this.value;
+                                })
+                            })
+                        </script>
+
+                        <div style="display: flex; justify-content: space-evenly;">
+                            <button type="button" class="submitButton"
+                                style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き</button>
+                            <button type="button" class="confirmClearButton"
+                                style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
+
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <section id="displayArea" style="width:600px; background-color:rgb(235, 207, 52, 0.5);padding:10px;">
+            <button type="button" class="selectAllButton"
+                style="margin:0;padding:5px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;">全て選択</button>
+            <div id="movieInfo">
+                <p style="margin:15px 0 0 0; font-family: sans-serif;">【素材情報】</p>
+                <div class="sozaiArea" style="font-family: sans-serif;"></div>
+                <div class="eachMovieInfo"></div>
+            </div>
+        </section>
+    </div>
+
+    <div style="display:flex; justify-content: center;">
+        <button type="button" class="clearAllButton"
+            style="margin:30px 0 0 0;padding:10px 100px; background-color:rgba(0, 153, 54, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;">全てクリア</button>
+    </div>
+    <script>
+        //Internet distribution condition of the entire video image
+        document.addEventListener('DOMContentLoaded', function () {
+
+            //variables for internet distribution of the whole movie
+            var sozai = document.querySelector('.sozaiArea');
+            var radioButtons = document.querySelectorAll('input[type="radio"][name="internet"]');
+
+            //variable for mobie title
+            var movieDescriptionText = ''
+            var movieDescription = document.querySelector('.movieDescription');
+
+            // variables for submission
+            var submissionDestination = document.querySelector('.submissionDestination');
+            var submitButton = document.querySelector('.submitButton');
+
+            var copyRight = "";
+            var thirdPartyValue;
+            var copyRightInput = document.querySelector("#copyrightInput");
+            var thirdParty = document.querySelector(".thirdPartySelection");
+            var thirdPartySelection = document.querySelector('.thirdPartyAlt');
+            var thirdPartyInput = document.querySelector('#thirdPartyInput');
+            var counter = 1;
+
+
+            var arrivalDate;
+
+
+
+            // create new div element
+            var newDiv = document.createElement("div");
+            // var movieInfo = document.querySelector("#movieInfo")
+            newDiv.className = "eachSozai" + counter;
+            var eachMovieInfo = document.querySelector(".eachMovieInfo");
+            eachMovieInfo.appendChild(newDiv);
+
+            // variables for selectAllButton
+            var selectAllButton = document.querySelector('.selectAllButton');
+            var displayArea = document.querySelector('#movieInfo');
+
+            // variables for formattedDeliverDate, default value is "none"
+            var formattedDeliverDate = ""
+
+            radioButtons.forEach(function (radioButton) {
+                radioButton.addEventListener('change', function () {
+                    if (this.checked) {
+                        sozai.innerText = this.value;
+                    };
+                });
+            });
+
+            //movie title
+            movieDescription.addEventListener('change', function () {
+                movieDescriptionText = this.value;
+            })
+
+            //movie register date
+            var formattedDate = '';
+            var registerDateInput = document.querySelector('.registerDate');
+
+            registerDateInput.addEventListener('change', function () {
+                var registerDate = registerDateInput.value;
+                var parts = registerDate.split("-");
+                var year = parts[0];
+                var month = parts[1];
+                var day = parts[2];
+                formattedDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+            });
+
+            //////////////////////////
+            //create register number//
+            //////////////////////////
+            var movieNumber = '';
+            var movieNum = document.querySelector('.movieNum')
+            movieNum.addEventListener('change', function () {
+                movieNumber = this.value;
+            })
+
+            var selectedNumber = '';
+            var inputElement = document.querySelector('#submissionNumInput');
+            var selectElement = document.querySelector('#submissionNum');
+            for (var i = 1; i <= 300; i++) {
+                var optionElement = document.createElement('option');
+                optionElement.value = i.toString();
+                optionElement.textContent = i.toString();
+                selectElement.appendChild(optionElement);
+            };
+
+            inputElement.addEventListener('input', function () {
+
+                // get the selected number and assign it to selectedNumber
+                selectedNumber = this.value;
+            });
+
+            // ダイアログリストがクリックされたときに入力値をクリアする
+            inputElement.addEventListener('click', function () {
+                inputElement.value = '';
+                selectedNumber = '';
+            });
+
+            inputElement.addEventListener('mousedown', function () {
+                inputElement.value = '';
+                selectedNumber = '';
+            });
+
+            /////////////////////////////////////////////////////////////////
+            //display 3rd party's alternatives when "3rd party" is selected//
+            /////////////////////////////////////////////////////////////////
+
+
+            //
+            var deliverDateContainer = document.querySelector(".deliverDateContainer");
+
+            function handleCopyRightInput() {
+                if (this.value == "RTV第三者素材" ||
+                    this.value == "AP第三者素材" ||
+                    copyRight == "RTV第三者素材" ||
+                    copyRight == "AP第三者素材") {
+                    thirdParty.style.display = "flex";
+                    deliverDateContainer.style.display = "block";
+                } else if (this.value == "RTV" ||
+                    this.value == "AP" ||
+                    this.value == "CCTV" ||
+                    copyRight == "RTV" ||
+                    copyRight == "AP" ||
+                    copyRight == "CCTV") {
+                    deliverDateContainer.style.display = "block";
+                    thirdParty.style.display = "none";
+                    thirdPartyInput.value = '';
+                    thirdPartyValue = '';
+                    formattedDeliverDate = '';
+
+                } else {
+                    thirdParty.style.display = "none";
+                    deliverDateContainer.style.display = "none";
+
+                    //clear third party variable and input text
+                    thirdPartyInput.value = '';
+                    thirdPartyValue = '';
+
+                    //clear format date and selected day
+                    formattedDeliverDate = '';
+                    deliverDateContainer.value = '';
+                    deliverDate.value = '';
+                    arrivalDate = '';
+
+                }
+
+                if (this.value == undefined) {
+                    return copyRight
+                } else {
+                    copyRight = this.value
+                    return copyRight
+                }
+                deliverDateManipulate();
+            };
+
+            copyRightInput.addEventListener("input", handleCopyRightInput);
+
+            thirdPartyInput.addEventListener('input', function () {
+                thirdPartyValue = this.value;
+            });
+
+            // 「版権」がクリックされたときに入力値をクリアする
+            copyRightInput.addEventListener('click', function () {
+                copyRightInput.value = '';
+                copyRight = '';
+            });
+
+            //
+            copyRightInput.addEventListener('mousedown', function () {
+                copyRightInput.value = '';
+                copyRight = '';
+            });
+
+            // 「版権」がクリックされたときに既存の入力値をクリアする
+            thirdPartyInput.addEventListener('click', function () {
+                thirdPartyInput.value = '';
+            });
+
+            thirdPartyInput.addEventListener('mousedown', function () {
+                thirdPartyInput.value = '';
+                thirdPartyValue = '';
+            });
+            ////////////////////////
+            //format delivery date//
+            ////////////////////////
+
+            // ボタンがクリックされたときのイベントリスナーを追加
+            function deliverDateManipulate() {
+                copyRight = handleCopyRightInput();
+
+                var deliverDate;
+                //
+                var selectedDate = new Date(document.querySelector('.deliverDate').value);
+                deliverDate = selectedDate;
+
+                var deliverYear = deliverDate.getFullYear();
+                var deliverMonth = deliverDate.getMonth() + 1; // 月は 0 から始まるため、1 を加える
+                var deliverDay = deliverDate.getDate();
+
+                // 目的の形式にフォーマットする
+                if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
+                    arrivalDate = deliverYear + "年" + parseInt(deliverMonth, 10) + "月" + parseInt(deliverDay, 10) + "日";
+                } else {
+                    arrivalDate = "";
+                }
+                if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材") {
+                    selectedDate.setDate(selectedDate.getDate() + 14);
+                } else if (copyRight == "RTV") {
+                    selectedDate.setDate(selectedDate.getDate() + 30);
+                } else if (copyRight == "AP") {
+                    selectedDate.setDate(selectedDate.getDate() + 45);
+                }
+                // 配信日の入力値を取得して変数に格納
+                var year = selectedDate.getFullYear();
+                var month = selectedDate.getMonth() + 1; // 月は 0 から始まるため、1 を加える
+                var day = selectedDate.getDate();
+
+                // 目的の形式にフォーマットする
+                if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
+                    formattedDeliverDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+                } else {
+                    formattedDeliverDate = ""
+                }
+            };
+
+            deliverDateContainer.addEventListener('change', deliverDateManipulate);
+
+            ///////////////////////////////////////////////////////
+            //Check whether "must courtesy" or not for each movie//
+            ///////////////////////////////////////////////////////
+            var credit = '';
+            var eachRadioButtons = document.querySelectorAll('input[type="radio"][name="askCourtesy"]');
+            eachRadioButtons.forEach(function (radioButton) {
+                radioButton.addEventListener('change', function () {
+                    credit = this.value;
+                })
+            })
+
+            ///////////////
+            //credit text//
+            ///////////////
+            var creditInputContainer = document.querySelector('.creditTextContainer');
+            var radioButtons = document.querySelectorAll('input[type="radio"][name="askCourtesy"]');
+            var creditText;
+
+            // check for changes of radio button field and display/hide credit text input field
+            radioButtons.forEach(function (radioButton) {
+                radioButton.addEventListener('change', function () {
+                    // 選択された値が "※要クレジット" の場合、クレジット表記の入力フィールドを表示する
+                    if (this.value === "※要クレジット") {
+                        creditInputContainer.style.display = "block";
+                    } else {
+                        // それ以外の場合は非表示にする
+                        creditInputContainer.style.display = "none";
+                        document.querySelector('#creditText').value = '';
+                        creditText = '';
+                    }
+                });
+            });
+
+            // get creditText field
+            var creditInputElement = document.querySelector('#creditText');
+            creditInputElement.addEventListener('change', function () {
+                creditText = this.value;
+            })
+
+            /////////////////////
+            //Clear input field//
+            /////////////////////
+
+            // カウンターをインクリメント
+            var eachSozaiArea = document.querySelector('.eachSozai1');
+            var deliverDate = document.querySelector('.deliverDate');
+
+            var confirmClearButton = document.querySelector(".confirmClearButton")
+            confirmClearButton.addEventListener('click', function () {
+
+                //reset variables
+                movieDescriptionText = '';
+                movieDescription.value = '';
+
+                formattedDate = '';
+                registerDateInput.value = '';
+
+                movieNumber = '';
+                movieNum.value = '';
+                selectedNumber = '';
+                submissionNumInput.value = '';
+
+                copyRight = '';
+                copyRightInput.value = '';
+
+                thirdPartyValue = '';
+                thirdPartyInput.value = '';
+                thirdParty.style.display = "none";
+
+                credit = '';
+                document.querySelector('#noCredit').checked = true;
+                creditText = '';
+                creditInputContainer.style.display = "none";
+                creditInputElement.value = '';
+
+                arrivalDate = '';
+                deliverDate.value = '';
+                formattedDeliverDate = '';
+                deliverDateContainer.value = '';
+                deliverDateContainer.style.display = 'none';
+
+                counter++;
+
+                // eachSozaiクラスを持つ要素を取得
+                var eachSozaiElement = document.querySelector('.eachSozai' + (counter - 1));
+
+                var paragraphs = eachSozaiElement.querySelectorAll('p');
+
+                // 各p要素に対してスタイルを変更する
+                paragraphs.forEach(function (paragraph) {
+                    paragraph.style.fontWeight = 'bold';
+                    paragraph.style.color = 'red';
+
+                    // paragraph.style.fontStyle = 'italic';
+                });
+
+                // JavaScriptを使用して要素を作成し、クラスを追加する
+                var newDiv = document.createElement('div');
+                newDiv.classList.add('eachSozai' + counter);
+
+                // コンテナ要素に新しい要素を追加する
+                document.querySelector('#movieInfo').appendChild(newDiv);
+                eachSozaiArea = document.querySelector('.eachSozai' + counter);
+
+            });
+
+            //////////////////////////////////////////////////////////////////
+            //Gather variables of each section and display on the right side//
+            //////////////////////////////////////////////////////////////////
+
+            submitButton.addEventListener('click', function () {
+                eachSozaiArea.innerHTML = `
+                <br>
+                <p style="margin:0; display:block;font-family: sans-serif; font-size:1.2em;" >◾️${movieDescriptionText}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${formattedDate}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${submissionDestination.value}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${selectedNumber}</p>
+
+                ${movieNumber ? `<p style="margin:0;font-family: sans-serif; font-size:1.2em;">素材番号:${movieNumber}</p>` : ''}
+
+                <div>
+                    <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${copyRight}</p>
+                    ${thirdPartyValue ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">(${thirdPartyValue})</p>` : ''}
+                </div>
+
+                <div>
+                    ${credit ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${credit}</p>` : ''}
+
+                    ${creditText ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">(${creditText})</p>` : ''}
+                </div>
+
+                ${arrivalDate ? `<p style="margin:0;font-family: sans-serif; font-size:1.2em;">配信日:${arrivalDate}</p>` : ''}
+
+                ${formattedDeliverDate ? `<p style="margin:0;font-family: sans-serif; font-size:1.2em;">使用期限:${formattedDeliverDate}</p>` : ''}
+
+
+                ${internetAvailability ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${internetAvailability}</p>` : ''}
+
+            `;
+
+            });
+
+            selectAllButton.addEventListener('click', function () {
+                var range = document.createRange();
+                range.selectNodeContents(displayArea);
+                var selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+            })
+        });
+
+        var clearAllButton = document.querySelector('.clearAllButton')
+        clearAllButton.addEventListener('click', function () {
+            location.reload()
+        })
+    </script>
+</body>
+
+</html>
