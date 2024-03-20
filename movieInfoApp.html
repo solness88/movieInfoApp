@@ -510,20 +510,19 @@
 
                 var paragraphs = eachSozaiElement.querySelectorAll('p');
 
-                // 各p要素に対してスタイルを変更する
+                // change the color of existing text to red
                 paragraphs.forEach(function (paragraph) {
-                    paragraph.style.fontWeight = 'bold';
                     paragraph.style.color = 'red';
-
-                    // paragraph.style.fontStyle = 'italic';
                 });
 
-                // JavaScriptを使用して要素を作成し、クラスを追加する
+                // Create element using JS and set new class for it
                 var newDiv = document.createElement('div');
                 newDiv.classList.add('eachSozai' + counter);
 
-                // コンテナ要素に新しい要素を追加する
+                // append new div element
                 document.querySelector('#movieInfo').appendChild(newDiv);
+
+                //set the new div element to the variable "eachSozaiArea" 
                 eachSozaiArea = document.querySelector('.eachSozai' + counter);
 
             });
