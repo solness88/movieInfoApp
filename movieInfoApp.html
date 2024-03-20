@@ -534,30 +534,30 @@
             submitButton.addEventListener('click', function () {
                 eachSozaiArea.innerHTML = `
                 <br>
-                <p style="margin:0; display:block;font-family: sans-serif; font-size:1.2em;" >◾️${movieDescriptionText}</p>
-                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${formattedDate}</p>
-                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${submissionDestination.value}</p>
-                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${selectedNumber}</p>
+                <p style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >◾️${movieDescriptionText}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestination.value}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${selectedNumber}</p>
 
-                ${movieNumber ? `<p style="margin:0;font-family: sans-serif; font-size:1.2em;">素材番号:${movieNumber}</p>` : ''}
+                ${movieNumber ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</p>` : ''}
 
                 <div>
-                    <p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${copyRight}</p>
-                    ${thirdPartyValue ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">(${thirdPartyValue})</p>` : ''}
+                    <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</p>
+                    ${thirdPartyValue ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</p>` : ''}
                 </div>
 
                 <div>
-                    ${credit ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${credit}</p>` : ''}
+                    ${credit ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</p>` : ''}
 
-                    ${creditText ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">(${creditText})</p>` : ''}
+                    ${creditText ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">(${creditText})</p>` : ''}
                 </div>
 
-                ${arrivalDate ? `<p style="margin:0;font-family: sans-serif; font-size:1.2em;">配信日:${arrivalDate}</p>` : ''}
+                ${arrivalDate ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDate}</p>` : ''}
 
-                ${formattedDeliverDate ? `<p style="margin:0;font-family: sans-serif; font-size:1.2em;">使用期限:${formattedDeliverDate}</p>` : ''}
+                ${formattedDeliverDate ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">使用期限:${formattedDeliverDate}</p>` : ''}
 
 
-                ${internetAvailability ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1.2em;">${internetAvailability}</p>` : ''}
+                ${internetAvailability ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${internetAvailability}</p>` : ''}
 
             `;
 
