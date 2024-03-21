@@ -9,239 +9,233 @@
 
 <body>
 
-    <div style="display:flex; justify-content:space-around" ;>
-        <section>
+    <!-- <div style="display:flex; justify-content:space-around" ;> -->
+    <section style="width:45%;position:fixed;left:30px;">
 
-            <!-- Ask for internet distribution availability -->
-            <div>
-                <form>
-                    <fieldset>
-                        <legend style=" font-family: sans-serif;">編集素材全体のインターネット配信・特記事項</legend>
-                        <div style="margin: 10px 0 0 0;">
-                            <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet"
-                                value="※全編インターネットＯＫ" />
-                            <label for="internetAllOK" style="font-family: sans-serif;">全編インターネットＯＫ</label>
+        <!-- Ask for internet distribution availability -->
+        <div>
+            <form>
+                <fieldset>
+                    <legend style=" font-family: sans-serif;">編集素材全体のインターネット配信・特記事項</legend>
+                    <div style="margin: 10px 0 0 0;">
+                        <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet" value="※全編インターネットＯＫ" />
+                        <label for="internetAllOK" style="font-family: sans-serif;">全編インターネットＯＫ</label>
 
-                            <input type="radio" id="partlyInternetNG" name="upperRadioButtonsInternet"
-                                value="※一部インターネットＮＧ" />
-                            <label for="partlyInternetNG" style="font-family: sans-serif;">一部インターネットＮＧ</label>
+                        <input type="radio" id="partlyInternetNG" name="upperRadioButtonsInternet"
+                            value="※一部インターネットＮＧ" />
+                        <label for="partlyInternetNG" style="font-family: sans-serif;">一部インターネットＮＧ</label>
 
-                            <input type="radio" id="internetAllNG" name="upperRadioButtonsInternet"
-                                value="※全編インターネットＮＧ" />
-                            <label for="internetAllNG" style="font-family: sans-serif;">全編インターネットＮＧ</label>
+                        <input type="radio" id="internetAllNG" name="upperRadioButtonsInternet" value="※全編インターネットＮＧ" />
+                        <label for="internetAllNG" style="font-family: sans-serif;">全編インターネットＮＧ</label>
 
-                        </div>
+                    </div>
 
-                        <!-- checkbox asking for any special notes -->
-                        <div style="margin:10px 0 0 0;">
-                            <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:10px 0 0 5px;" />
-                            <label for="checkSpecialNotes"
-                                style="margin:10px 0 0 0;font-family: sans-serif;">特記事項を入力する</label>
-                        </div>
+                    <!-- checkbox asking for any special notes -->
+                    <div style="margin:10px 0 0 0;">
+                        <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:10px 0 0 5px;" />
+                        <label for="checkSpecialNotes"
+                            style="margin:10px 0 0 0;font-family: sans-serif;">特記事項を入力する</label>
+                    </div>
 
-                        <!-- input field of special notes -->
-                        <div style="display:none; margin:10px 0" id="checkSpecialNotesContainer">
-                            <!-- <label for="name" style="font-family: sans-serif;"></label> -->
+                    <!-- input field of special notes -->
+                    <div style="display:none; margin:10px 0" id="checkSpecialNotesContainer">
+                        <!-- <label for="name" style="font-family: sans-serif;"></label> -->
 
-                            <input type="text" class="specialNotes" name="name" size="50"
-                                style="width:20em; height:1.5em; font-size:1.2em;">
-                        </div>
+                        <textarea type="text" class="specialNotes" name="name" size="50"
+                            style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
+                    </div>
 
 
-                        <div style="text-align: right;margin:0 50px 0 0;">
-                            <button type="button" class="upperSubmitButton"
-                                style="padding:5px 10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;display: inline;;">決定・上書き→→</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+                    <div style="text-align: right;margin:0 50px 0 0;">
+                        <button type="button" class="upperSubmitButton"
+                            style="padding:5px 10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;display: inline;;">決定・上書き→→</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
 
-            <!-- Used image info -->
-            <div style="margin:20px 0 0 0;">
-                <form>
-                    <fieldset>
-                        <legend style="font-family: sans-serif;">個別の使用素材</legend>
+        <!-- Used image info -->
+        <div style="margin:10px 0 0 0;">
+            <form>
+                <fieldset>
+                    <legend style="font-family: sans-serif;">個別の使用素材</legend>
 
-                        <!-- Movie title -->
-                        <div style="margin:0 0 20px 0;">
-                            <label for="name" style="font-family: sans-serif;">使った素材内容</label>
+                    <!-- Movie title -->
+                    <div style="margin:0 0 20px 0;display: flex;align-items: center;">
+                        <label for="name" style="font-family: sans-serif;">使った素材内容</label>
 
-                            <input type="text" class="movieDescription" name="name" size="50"
-                                style="width:20em; height:1.5em; font-size:1.2em;">
-                        </div>
+                        <textarea type="text" class="movieDescription" name="name" size="50"
+                            style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
+                    </div>
 
-                        <!-- movie arrival date -->
-                        <div style=" display:flex; align-items: center; margin: 0 0 20px 0">
-                            <label for="date" style="font-family: sans-serif;">入稿日</label>
-                            <input type="date" class="registerDate" style="height:1.5em; width: 150px;"></input>
-                            <p id="inputPromptText"
-                                style="display:inline; font-family: sans-serif;color:blue; margin:0 0 0 20px;">
-                                素材情報を入力してください！</p>
-                        </div>
+                    <!-- movie arrival date -->
+                    <div style=" display:flex; align-items: center; margin: 0 0 20px 0">
+                        <label for="date" style="font-family: sans-serif;">入稿日</label>
+                        <input type="date" class="registerDate" style="height:1.5em; width: 150px;"></input>
+                        <p id="inputPromptText"
+                            style="display:inline; font-family: sans-serif;color:blue; margin:0 0 0 20px;">
+                            素材情報を入力してください！</p>
+                    </div>
 
-                        <!-- select movie genre -->
-                        <div style=" display: flex; margin: 0 0 20px 0">
-                            <!-- <div style="display:flex; margin:0 30px 0 0;"> -->
+                    <!-- select movie genre -->
+                    <div style=" display: flex; align-items: center;margin: 0 0 20px 0">
+                        <div style="margin:0 30px 0 0;">
                             <label style="margin: 0 5px 0 0; font-family: sans-serif;">入稿先</label>
-                            <select class="submissionDestination" name="choice" style="height:2em;">
+                            <select class="submissionDestination" name="choice" style="height:2em;width:10em;">
                                 <option value="国際" selected style="font-family: sans-serif;">国際</option>
                                 <option value="政治" style="font-family: sans-serif;">政治</option>
                                 <option value="経済" style="font-family: sans-serif;">経済</option>
                                 <option value="社会" style="font-family: sans-serif;">社会</option>
                                 <option value="NN" style="font-family: sans-serif;">ＮＮ</option>
                             </select>
-                            <!-- </div> -->
-
-                            <!-- select register number create 300 using JavaScript for loop -->
-                            <div style="display:flex;">
-                                <label for="submissionNumInput"
-                                    style="margin: 0 0 0 20px;font-family: sans-serif;">入稿番号</label>
-                                <input list="submissionNum" id="submissionNumInput" name="submissionNumInput" />
-                                <datalist id="submissionNum" name="choice"></datalist>
-                            </div>
                         </div>
 
-                        <div style="margin:0 0 20px 0;">
-                            <label for="name" style="font-family: sans-serif;">素材番号</label>
-                            <input type="text" class="movieNum" name="name" size="30"
-                                style="width:20em; height:1.2em; font-size:1.2em;">
+                        <!-- select register number create 300 using JavaScript for loop -->
+                        <div style="margin:0 30px 0 0;">
+                            <label for=" submissionNumInput" style="font-family: sans-serif;">入稿番号</label>
+                            <input list="submissionNum" id="submissionNumInput" name="submissionNumInput"
+                                style="height:1em; width:10em; font-size:1em;" />
+                            <datalist id="submissionNum" name="choice"></datalist>
+                        </div>
+                    </div>
 
+                    <div style="margin:0 0 20px 0;">
+                        <label for="name" style="font-family: sans-serif;">素材番号</label>
+                        <input type="text" class="movieNum" name="name" size="30"
+                            style="width:10em; height:1.2em; font-size:1.2em;">
+
+                    </div>
+                    <!-- copyright -->
+                    <div style="display: flex; margin: 0 0 20px 0">
+                        <div style="display:flex; margin:0 30px 0 0;">
+                            <label for="copyrightInput" style="font-family: sans-serif;">版権</label>
+                            <input list="copyright" id="copyrightInput" name="copyrightInput">
+                            <datalist id="copyright" name="choice" class="copyRight">
+                                <option value="NNN" id="NNN"></option>
+                                <option value="RTV" id="RTV"></option>
+                                <option value="AP"></option>
+                                <option value="RTV第三者素材" id="RTV3rdParty"></option>
+                                <option value="AP第三者素材" id="AP3rdParty"></option>
+                                <option value="NBC" id="NBC"></option>
+                                <option value="SBS" id="SBS"></option>
+                                <option value="CCTV" id="CCTV"></option>
+                            </datalist>
                         </div>
 
-                        <!-- copyright -->
-                        <div style="display: flex; margin: 0 0 20px 0">
-                            <div style="display:flex; margin:0 30px 0 0;">
-                                <label for="copyrightInput" style="font-family: sans-serif;">版権</label>
-                                <input list="copyright" id="copyrightInput" name="copyrightInput">
-                                <datalist id="copyright" name="choice" class="copyRight">
-                                    <option value="NNN" id="NNN"></option>
-                                    <option value="RTV" id="RTV"></option>
-                                    <option value="AP"></option>
-                                    <option value="RTV第三者素材" id="RTV3rdParty"></option>
-                                    <option value="AP第三者素材" id="AP3rdParty"></option>
-                                    <option value="NBC" id="NBC"></option>
-                                    <option value="SBS" id="SBS"></option>
-                                    <option value="CCTV" id="CCTV"></option>
-                                </datalist>
-                            </div>
-
-                            <!-- 第三者素材の入力・選択 -->
-                            <div style="display: none;" class="thirdPartySelection">
-                                <label for="thirdPartyInput" style="font-family: sans-serif;">第三者素材を入力</label>
-                                <input list="thirdParty" id="thirdPartyInput" name="thirdPartyInput">
-                                <datalist id="thirdParty" name="choice" class="thirdParty">
-                                    <option selected value=''></option>
-                                    <option value="NBC" class="thirdPartyAlt" style="font-family: sans-serif;">NBC
-                                    </option>
-                                    <option value="BBC" class="thirdPartyAlt" style="font-family: sans-serif;">BBC
-                                    </option>
-                                    <option value="CNN" class="thirdPartyAlt" style="font-family: sans-serif;">CNN
-                                    </option>
-                                    <option value="TV GLOBO" class="thirdPartyAlt" style="font-family: sans-serif;">
-                                        TV
-                                        GLOBO</option>
-                                    <option value="CCTV" class="thirdPartyAlt" style="font-family: sans-serif;">CCTV
-                                    </option>
-                                </datalist>
-                            </div>
+                        <!-- 第三者素材の入力・選択 -->
+                        <div style="display: none;" class="thirdPartySelection">
+                            <label for="thirdPartyInput" style="font-family: sans-serif;">第三者素材を入力</label>
+                            <input list="thirdParty" id="thirdPartyInput" name="thirdPartyInput">
+                            <datalist id="thirdParty" name="choice" class="thirdParty">
+                                <option selected value=''></option>
+                                <option value="NBC" class="thirdPartyAlt" style="font-family: sans-serif;">NBC
+                                </option>
+                                <option value="BBC" class="thirdPartyAlt" style="font-family: sans-serif;">BBC
+                                </option>
+                                <option value="CNN" class="thirdPartyAlt" style="font-family: sans-serif;">CNN
+                                </option>
+                                <option value="TV GLOBO" class="thirdPartyAlt" style="font-family: sans-serif;">
+                                    TV
+                                    GLOBO</option>
+                                <option value="CCTV" class="thirdPartyAlt" style="font-family: sans-serif;">CCTV
+                                </option>
+                            </datalist>
                         </div>
+                    </div>
 
-                        <!-- movie deliver date -->
-                        <div style="display:none; margin: 0 0 20px 0;" class="deliverDateContainer">
-                            <label for="date" style="font-family: sans-serif;">配信日：</label>
-                            <input type="date" class="deliverDate"></input>
-                        </div>
+                    <!-- movie deliver date -->
+                    <div style="display:none; margin: 0 0 20px 0;" class="deliverDateContainer">
+                        <label for="date" style="font-family: sans-serif;">配信日：</label>
+                        <input type="date" class="deliverDate"></input>
+                    </div>
 
-                        <!-- radio buttons asking for whether each movie needs courtesy or not-->
-                        <div>
-                            <input type="radio" id="noCredit" name="askCourtesy" value="" 　style="margin:0 0 20px 0;"
-                                checked />
-                            <label for="noCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">クレジット不要</label>
+                    <!-- radio buttons asking for whether each movie needs courtesy or not-->
+                    <div>
+                        <input type="radio" id="noCredit" name="askCourtesy" value="" 　style="margin:0 0 20px 0;"
+                            checked />
+                        <label for="noCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">クレジット不要</label>
 
-                            <input type="radio" id="mustCredit" name="askCourtesy" value="※要クレジット"
-                                style="margin:0 0 20px 10px;" />
-                            <label for="mustCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">要クレジット</label>
-                        </div>
+                        <input type="radio" id="mustCredit" name="askCourtesy" value="※要クレジット"
+                            style="margin:0 0 20px 10px;" />
+                        <label for="mustCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">要クレジット</label>
+                    </div>
 
-                        <!-- credit text -->
-                        <!-- start -->
-                        <div class="creditTextContainer" style="display: none; margin:0 0 30px 0;">
-                            <label for="name" style="font-family: sans-serif;">クレジット表記</label>
-                            <input type="text" id="creditText" name="name" size="50" />
-                        </div>
+                    <!-- credit text -->
+                    <!-- start -->
+                    <div class="creditTextContainer" style="display: none; margin:0 0 30px 0;">
+                        <label for="name" style="font-family: sans-serif;">クレジット表記</label>
+                        <input type="text" id="creditText" name="name" size="50" />
+                    </div>
 
-                        <!-- radio buttons asking for each movie internet distribution-->
-                        <div>
-                            <input type="radio" id="internetOK" name="eachMovieInternet" value=""
-                                　style="margin:0 0 20px 0;" checked />
-                            <label for="internetOK" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットOK</label>
+                    <!-- radio buttons asking for each movie internet distribution-->
+                    <div>
+                        <input type="radio" id="internetOK" name="eachMovieInternet" value=""
+                            　style="margin:0 0 20px 0;" checked />
+                        <label for="internetOK" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットOK</label>
 
-                            <input type="radio" id="internetNG" name="eachMovieInternet" value="インターネットNG"
-                                style="margin:0 0 10px 10px;" />
-                            <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットNG</label>
-                        </div>
+                        <input type="radio" id="internetNG" name="eachMovieInternet" value="インターネットNG"
+                            style="margin:0 0 10px 10px;" />
+                        <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットNG</label>
+                    </div>
 
-                        <script>
-                            var radioButtonsInternet = document.querySelectorAll('input[type="radio"][name="eachMovieInternet"]');
-                            var internetAvailability = '';
+                    <script>
+                        var radioButtonsInternet = document.querySelectorAll('input[type="radio"][name="eachMovieInternet"]');
+                        var internetAvailability = '';
 
-                            radioButtonsInternet.forEach(function (radioButtonInternet) {
-                                radioButtonInternet.addEventListener('change', function () {
-                                    internetAvailability = this.value;
-                                })
+                        radioButtonsInternet.forEach(function (radioButtonInternet) {
+                            radioButtonInternet.addEventListener('change', function () {
+                                internetAvailability = this.value;
                             })
-                        </script>
+                        })
+                    </script>
+
+                    <!-- checkbox asking for any special notes for each movie -->
+                    <div style="margin: 0 0 10px 0;">
+                        <input type="checkbox" id="checkEachMovieCaution" name="scales" style="margin:10px 0 0 5px;" />
+                        <label for="checkEachMovieCaution"
+                            style="margin:10px 0 0 0;font-family: sans-serif;">使用注意などを入力</label>
+                    </div>
+
+                    <!-- input field of special notes -->
+                    <div style="display:none; margin:0 0 20px 0" id="eachMovieCautionContainer">
+                        <!-- <label for="name" style="font-family: sans-serif;">使用注意など</label> -->
+
+                        <textarea type="text" class="eachMovieCaution" name="name" size="50"
+                            style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
+                    </div>
 
 
+                    <div style="display: flex; justify-content: space-evenly;">
 
+                        <button type="button" class="confirmClearButton"
+                            style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
+                        <button type="button" class="submitButton"
+                            style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
 
-
-                        <!-- checkbox asking for any special notes for each movie -->
-                        <div style="margin: 0 0 10px 0;">
-                            <input type="checkbox" id="checkEachMovieCaution" name="scales"
-                                style="margin:10px 0 0 5px;" />
-                            <label for="checkEachMovieCaution"
-                                style="margin:10px 0 0 0;font-family: sans-serif;">使用注意などを入力</label>
-                        </div>
-
-                        <!-- input field of special notes -->
-                        <div style="display:none; margin:0 0 20px 0" id="eachMovieCautionContainer">
-                            <!-- <label for="name" style="font-family: sans-serif;">使用注意など</label> -->
-
-                            <input type="text" class="eachMovieCaution" name="name" size="50"
-                                style="width:20em; height:1.5em; font-size:1.2em;">
-                        </div>
-
-
-                        <div style="display: flex; justify-content: space-evenly;">
-
-                            <button type="button" class="confirmClearButton"
-                                style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
-                            <button type="button" class="submitButton"
-                                style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </section>
-
-        <section id="displayArea" style="width:600px; background-color:rgb(235, 207, 52, 0.5);padding:10px;">
+    <section style="display: flex;justify-content: right;">
+        <div id="displayArea"
+            style="width:40%; background-color:rgb(235, 207, 52, 0.5);padding:10px;min-height:600px;margin:0 50px 0 0;">
             <!-- <div style="text-align: right;margin:0 30px 0 0;"> -->
             <button type="button" class="selectAllButton"
-                style="margin:0;padding:5px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;display: inline;position:fixed; right: 100px;">テキストをコピー</button>
+                style="margin:0;padding:3px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;display: inline;position:fixed; right: 100px;">テキストをコピー</button>
             <!-- </div> -->
             <div id="movieInfo">
                 <p style="margin:0; font-family: sans-serif;">【素材情報】</p>
                 <div class="sozaiArea" style="font-family: sans-serif;"></div>
                 <div class="eachMovieInfo"></div>
             </div>
-
-        </section>
+    </section>
     </div>
+    <!-- </div> -->
 
-    <div style="display:flex; justify-content: center;">
+    <div style="display:flex; justify-content: right;margin:0 150px 0 0;">
         <button type="button" class="clearAllButton"
-            style="margin:30px 0 0 0;padding:10px 100px; background-color:rgba(0, 153, 54, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;">全てクリア</button>
+            style="margin:30px 0 0 0;padding:10px 100px; background-color:rgba(0, 153, 54, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;font-size:1em;">ページを全てクリア</button>
     </div>
 
     <!-- ------------------------------------------------------------------------------------ 
