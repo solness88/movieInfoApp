@@ -48,14 +48,6 @@
                         </div>
 
 
-
-
-
-
-
-
-
-
                         <div style="text-align: right;margin:0 50px 0 0;">
                             <button type="button" class="upperSubmitButton"
                                 style="padding:5px 10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;display: inline;;">決定・上書き→→</button>
@@ -222,11 +214,11 @@
 
 
                         <div style="display: flex; justify-content: space-evenly;">
-                            <button type="button" class="submitButton"
-                                style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き</button>
+
                             <button type="button" class="confirmClearButton"
                                 style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
-
+                            <button type="button" class="submitButton"
+                                style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button>
                         </div>
                     </fieldset>
                 </form>
@@ -234,16 +226,16 @@
         </section>
 
         <section id="displayArea" style="width:600px; background-color:rgb(235, 207, 52, 0.5);padding:10px;">
-
+            <!-- <div style="text-align: right;margin:0 30px 0 0;"> -->
+            <button type="button" class="selectAllButton"
+                style="margin:0;padding:5px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;display: inline;position:fixed; right: 100px;">テキストをコピー</button>
+            <!-- </div> -->
             <div id="movieInfo">
-                <p style="margin:15px 0 0 0; font-family: sans-serif;">【素材情報】</p>
+                <p style="margin:0; font-family: sans-serif;">【素材情報】</p>
                 <div class="sozaiArea" style="font-family: sans-serif;"></div>
                 <div class="eachMovieInfo"></div>
             </div>
-            <div style="text-align: right;margin:0 30px 0 0;">
-                <button type="button" class="selectAllButton"
-                    style="margin:0;padding:5px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;display: inline;">テキストをコピー</button>
-            </div>
+
         </section>
     </div>
 
@@ -631,6 +623,11 @@
 
                 // display inputPromptText on the left side when the text is entered
                 inputPromptText.style.display = 'inline';
+
+                checkEachMovieCaution.checked = false;
+                eachMovieCautionContainer.style.display = 'none';
+                eachMovieCaution.value = '';
+                eachMovieCautionVariable = '';
 
                 counter++;
 
