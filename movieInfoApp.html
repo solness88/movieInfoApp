@@ -198,6 +198,27 @@
                             })
                         </script>
 
+
+
+
+
+                        <!-- checkbox asking for any special notes for each movie -->
+                        <div style="margin:10px 0 0 0;">
+                            <input type="checkbox" id="checkEachMovieCaution" name="scales"
+                                style="margin:10px 0 0 5px;" />
+                            <label for="checkEachMovieCaution"
+                                style="margin:10px 0 0 0;font-family: sans-serif;">使用注意などを入力</label>
+                        </div>
+
+                        <!-- input field of special notes -->
+                        <div style="display:none; margin:20px 0" id="eachMovieCautionContainer">
+                            <label for="name" style="font-family: sans-serif;">使用注意など</label>
+
+                            <input type="text" class="eachMovieCaution" name="name" size="50"
+                                style="width:20em; height:1.5em; font-size:1.2em;">
+                        </div>
+
+
                         <div style="display: flex; justify-content: space-evenly;">
                             <button type="button" class="submitButton"
                                 style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き</button>
@@ -529,6 +550,37 @@
             creditInputElement.addEventListener('change', function () {
                 creditText = this.value;
             })
+
+            ///////////////////////////////////////////////////////////////
+            //Special notes for each movie//
+            ///////////////////////////////////////////////////////////////
+            //assign each movie's special notes text to variable
+            var checkEachMovieCaution = document.querySelector('#checkEachMovieCaution');
+            var eachMovieCautionVariable = '';
+            var eachMovieCaution = document.querySelector('.eachMovieCaution');
+            var eachMovieCautionContainer = document.querySelector('#eachMovieCautionContainer');
+
+            eachMovieCaution.addEventListener('change', function () {
+                eachMovieCautionVariable = this.value;
+            })
+
+            var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+
+            checkEachMovieCaution.addEventListener('click', function () {
+                if (checkEachMovieCaution.checked) {
+                    eachMovieCautionContainer.style.display = "block";
+                } else {
+                    eachMovieCautionContainer.style.display = "none";
+
+                }
+            });
+
+
+
+
+
+
+
 
             /////////////////////
             //Clear input field//
