@@ -40,8 +40,8 @@
                         </div>
 
                         <!-- input field of special notes -->
-                        <div style="display:none; margin:20px 0" id="checkSpecialNotesContainer">
-                            <label for="name" style="font-family: sans-serif;">特記事項</label>
+                        <div style="display:none; margin:10px 0" id="checkSpecialNotesContainer">
+                            <!-- <label for="name" style="font-family: sans-serif;"></label> -->
 
                             <input type="text" class="specialNotes" name="name" size="50"
                                 style="width:20em; height:1.5em; font-size:1.2em;">
@@ -111,7 +111,9 @@
 
                         <div style="margin:0 0 20px 0;">
                             <label for="name" style="font-family: sans-serif;">素材番号</label>
-                            <input type="text" class="movieNum" name="name" size="30" />
+                            <input type="text" class="movieNum" name="name" size="30"
+                                style="width:20em; height:1.2em; font-size:1.2em;">
+
                         </div>
 
                         <!-- copyright -->
@@ -183,7 +185,7 @@
                             <label for="internetOK" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットOK</label>
 
                             <input type="radio" id="internetNG" name="eachMovieInternet" value="インターネットNG"
-                                style="margin:0 0 20px 10px;" />
+                                style="margin:0 0 10px 10px;" />
                             <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットNG</label>
                         </div>
 
@@ -203,7 +205,7 @@
 
 
                         <!-- checkbox asking for any special notes for each movie -->
-                        <div style="margin:10px 0 0 0;">
+                        <div style="margin: 0 0 10px 0;">
                             <input type="checkbox" id="checkEachMovieCaution" name="scales"
                                 style="margin:10px 0 0 5px;" />
                             <label for="checkEachMovieCaution"
@@ -211,8 +213,8 @@
                         </div>
 
                         <!-- input field of special notes -->
-                        <div style="display:none; margin:20px 0" id="eachMovieCautionContainer">
-                            <label for="name" style="font-family: sans-serif;">使用注意など</label>
+                        <div style="display:none; margin:0 0 20px 0" id="eachMovieCautionContainer">
+                            <!-- <label for="name" style="font-family: sans-serif;">使用注意など</label> -->
 
                             <input type="text" class="eachMovieCaution" name="name" size="50"
                                 style="width:20em; height:1.5em; font-size:1.2em;">
@@ -232,12 +234,15 @@
         </section>
 
         <section id="displayArea" style="width:600px; background-color:rgb(235, 207, 52, 0.5);padding:10px;">
-            <button type="button" class="selectAllButton"
-                style="margin:0;padding:5px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;">全て選択</button>
+
             <div id="movieInfo">
                 <p style="margin:15px 0 0 0; font-family: sans-serif;">【素材情報】</p>
                 <div class="sozaiArea" style="font-family: sans-serif;"></div>
                 <div class="eachMovieInfo"></div>
+            </div>
+            <div style="text-align: right;margin:0 30px 0 0;">
+                <button type="button" class="selectAllButton"
+                    style="margin:0;padding:5px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;display: inline;">テキストをコピー</button>
             </div>
         </section>
     </div>
@@ -684,6 +689,8 @@
 
                 ${internetAvailability ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${internetAvailability}</p>` : ''}
 
+                ${eachMovieCautionVariable ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${eachMovieCautionVariable}</p>` : ''}
+                
             `;
 
             });
@@ -694,6 +701,17 @@
                 var selection = window.getSelection();
                 selection.removeAllRanges();
                 selection.addRange(range);
+                // コピー操作を実行する
+                document.execCommand('copy');
+
+                setTimeout(function () {
+                    // コピー操作を実行する
+
+
+
+                    // アラートウィンドウを表示する
+                    alert('テキストがコピーされました！');
+                }, 300); // 1秒後に実行する
             })
         });
 
