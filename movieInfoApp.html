@@ -32,8 +32,15 @@
 
                         </div>
 
+                        <!-- checkbox asking for any special notes -->
+                        <div style="margin:10px 0 0 0;">
+                            <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:10px 0 0 5px;" />
+                            <label for="checkSpecialNotes"
+                                style="margin:10px 0 0 0;font-family: sans-serif;">特記事項を入力する</label>
+                        </div>
 
-                        <div style="margin:20px 0;">
+                        <!-- input field of special notes -->
+                        <div style="display:none; margin:20px 0" id="checkSpecialNotesContainer">
                             <label for="name" style="font-family: sans-serif;">特記事項</label>
 
                             <input type="text" class="specialNotes" name="name" size="50"
@@ -219,6 +226,9 @@
             style="margin:30px 0 0 0;padding:10px 100px; background-color:rgba(0, 153, 54, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;">全てクリア</button>
     </div>
 
+    <!-- ------------------------------------------------------------------------------------ 
+    JavaScript from here
+    ---------------------------------------------------------------------------------- -->
     <script>
         //Internet distribution condition of the entire video image
         document.addEventListener('DOMContentLoaded', function () {
@@ -227,7 +237,7 @@
             var sozai = document.querySelector('.sozaiArea');
             var radioButtons = document.querySelectorAll('input[type="radio"][name="internet"]');
 
-            //variable for mobie title
+            //variable for movie title
             var movieDescriptionText = ''
             var movieDescription = document.querySelector('.movieDescription');
 
@@ -272,17 +282,25 @@
                 })
             });
 
-
-
-            //////////////////////////////////////////////////////////////////////////////////////
-            //////////////////////////////////////////////////////////////////////////////////////
-            //assign movie title text to variable
+            //assign movie special notes text to variable
+            var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
             var movieSpecialNotes
             var specialNotes = document.querySelector('.specialNotes');
+
             specialNotes.addEventListener('change', function () {
                 movieSpecialNotes = this.value;
             })
 
+            var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+
+            checkSpecialNotes.addEventListener('click', function () {
+                if (checkSpecialNotes.checked) {
+                    checkSpecialNotesContainer.style.display = "block";
+                } else {
+                    checkSpecialNotesContainer.style.display = "none";
+
+                }
+            });
 
             var upperSubmitButton = document.querySelector('.upperSubmitButton');
             upperSubmitButton.addEventListener('click', function () {
@@ -291,18 +309,6 @@
                 <p style="margin:0;">${movieSpecialNotes}</p>
                `
             });
-
-
-
-
-
-
-
-
-
-
-
-
 
             //assign movie title text to variable
             movieDescription.addEventListener('change', function () {
@@ -365,7 +371,6 @@
             /////////////////////////////////////////////////////////////////
             //display 3rd party's alternatives when "3rd party" is selected//
             /////////////////////////////////////////////////////////////////
-
 
             //
             var deliverDateContainer = document.querySelector(".deliverDateContainer");
