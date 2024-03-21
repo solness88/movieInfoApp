@@ -82,7 +82,7 @@
                     <div style=" display: flex; align-items: center;margin: 0 0 20px 0">
                         <div style="margin:0 30px 0 0;">
                             <label style="margin: 0 5px 0 0; font-family: sans-serif;">入稿先</label>
-                            <select class="submissionDestination" name="choice" style="height:2em;width:10em;">
+                            <select class="submissionDestination" name="choice" style="width:5em;height:2.1em;">
                                 <option value="国際" selected style="font-family: sans-serif;">国際</option>
                                 <option value="政治" style="font-family: sans-serif;">政治</option>
                                 <option value="経済" style="font-family: sans-serif;">経済</option>
@@ -95,17 +95,18 @@
                         <div style="margin:0 30px 0 0;">
                             <label for=" submissionNumInput" style="font-family: sans-serif;">入稿番号</label>
                             <input list="submissionNum" id="submissionNumInput" name="submissionNumInput"
-                                style="height:1em; width:10em; font-size:1em;" />
+                                style="width:5em; font-size:1em;" />
                             <datalist id="submissionNum" name="choice"></datalist>
                         </div>
+
+                        <div style="display: flex;align-items: center;">
+                            <label for="name" style="font-family: sans-serif;">素材番号</label>
+                            <textarea type="text" class="movieNum" name="name" size="30"
+                                style="width:15em; height:1.7em; font-size:1em;"></textarea>
+                        </div>
+
                     </div>
 
-                    <div style="margin:0 0 20px 0;">
-                        <label for="name" style="font-family: sans-serif;">素材番号</label>
-                        <input type="text" class="movieNum" name="name" size="30"
-                            style="width:10em; height:1.2em; font-size:1.2em;">
-
-                    </div>
                     <!-- copyright -->
                     <div style="display: flex; margin: 0 0 20px 0">
                         <div style="display:flex; margin:0 30px 0 0;">
@@ -163,9 +164,10 @@
 
                     <!-- credit text -->
                     <!-- start -->
-                    <div class="creditTextContainer" style="display: none; margin:0 0 30px 0;">
+                    <div class="creditTextContainer" style="display: none; margin:0 0 30px 0;align-items: center;">
                         <label for="name" style="font-family: sans-serif;">クレジット表記</label>
-                        <input type="text" id="creditText" name="name" size="50" />
+                        <textarea type="text" id="creditText" name="name" size="50"
+                            style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
                     </div>
 
                     <!-- radio buttons asking for each movie internet distribution-->
@@ -174,9 +176,14 @@
                             　style="margin:0 0 20px 0;" checked />
                         <label for="internetOK" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットOK</label>
 
+                        <input type="radio" id="partlyInternetNG" name="eachMovieInternet" value="一部インターネットNG"
+                            style="margin:0 0 10px 10px;" />
+                        <label for="partlyInternetNG"
+                            style="margin:0 0 20px 0;font-family: sans-serif;">一部インターネットNG</label>
+
                         <input type="radio" id="internetNG" name="eachMovieInternet" value="インターネットNG"
                             style="margin:0 0 10px 10px;" />
-                        <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットNG</label>
+                        <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">全部インターネットNG</label>
                     </div>
 
                     <script>
@@ -210,7 +217,7 @@
                         <button type="button" class="submitButton"
                             style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button>
                         <button type="button" class="confirmClearButton"
-                            style="padding:5px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
+                            style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
 
                     </div>
                 </fieldset>
@@ -527,7 +534,7 @@
                 radioButton.addEventListener('change', function () {
                     // 選択された値が "※要クレジット" の場合、クレジット表記の入力フィールドを表示する
                     if (this.value === "※要クレジット") {
-                        creditInputContainer.style.display = "block";
+                        creditInputContainer.style.display = "flex";
                     } else {
                         // それ以外の場合は非表示にする
                         creditInputContainer.style.display = "none";
@@ -609,6 +616,10 @@
                 creditText = '';
                 creditInputContainer.style.display = "none";
                 creditInputElement.value = '';
+
+                //clear internet radiobutton and its variable 
+                document.querySelector('#internetOK').checked = true;
+                internetAvailability = '';
 
                 arrivalDate = '';
                 deliverDate.value = '';
