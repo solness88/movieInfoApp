@@ -12,12 +12,16 @@
     <!-- <div style="display:flex; justify-content:space-around" ;> -->
     <section style="width:45%;position:fixed;left:30px;">
 
+        <p style="color:rgb(245, 66, 158);font-size:9px;font-family: sans-serif;margin:0;">
+            テキスト入力欄を下に広げすぎると一部要素がスクリーン下にはみ出してしまう可能性あり。</p>
+        <p style="color:rgb(245, 66, 158);font-size:9px;font-family: sans-serif;;margin:0;">その場合テキスト入力欄のサイズを元に戻してください。
+        </p>
         <!-- Ask for internet distribution availability -->
         <div>
             <form>
                 <fieldset>
                     <legend style=" font-family: sans-serif;">編集素材全体のインターネット配信・特記事項</legend>
-                    <div style="margin: 10px 0 0 0;">
+                    <div>
                         <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet" value="※全編インターネットＯＫ" />
                         <label for="internetAllOK" style="font-family: sans-serif;">全編インターネットＯＫ</label>
 
@@ -31,16 +35,13 @@
                     </div>
 
                     <!-- checkbox asking for any special notes -->
-                    <div style="margin:10px 0 0 0;">
+                    <div>
                         <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:10px 0 0 5px;" />
-                        <label for="checkSpecialNotes"
-                            style="margin:10px 0 0 0;font-family: sans-serif;">特記事項を入力する</label>
+                        <label for="checkSpecialNotes" style="font-family: sans-serif;">特記事項を入力する</label>
                     </div>
 
                     <!-- input field of special notes -->
-                    <div style="display:none; margin:10px 0" id="checkSpecialNotesContainer">
-                        <!-- <label for="name" style="font-family: sans-serif;"></label> -->
-
+                    <div style="display:none;" id="checkSpecialNotesContainer">
                         <textarea type="text" class="specialNotes" name="name" size="50"
                             style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
                     </div>
@@ -55,13 +56,13 @@
         </div>
 
         <!-- Used image info -->
-        <div style="margin:10px 0 0 0;">
+        <div>
             <form>
                 <fieldset>
                     <legend style="font-family: sans-serif;">個別の使用素材</legend>
 
                     <!-- Movie title -->
-                    <div style="margin:0 0 20px 0;display: flex;align-items: center;">
+                    <div style="margin:10px 0 20px 0;display: flex;align-items: center;">
                         <label for="name" style="font-family: sans-serif;">使った素材内容</label>
 
                         <textarea type="text" class="movieDescription" name="name" size="50"
@@ -206,11 +207,11 @@
 
 
                     <div style="display: flex; justify-content: space-evenly;">
-
-                        <button type="button" class="confirmClearButton"
-                            style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
                         <button type="button" class="submitButton"
                             style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button>
+                        <button type="button" class="confirmClearButton"
+                            style="padding:5px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・次の素材入力へ</button>
+
                     </div>
                 </fieldset>
             </form>
@@ -219,7 +220,7 @@
 
     <section style="display: flex;justify-content: right;">
         <div id="displayArea"
-            style="width:40%; background-color:rgb(235, 207, 52, 0.5);padding:10px;min-height:600px;margin:0 50px 0 0;">
+            style="width:40%; background-color:rgb(235, 207, 52, 0.5);padding:10px;min-height:500px;margin:0 50px 0 0;">
             <!-- <div style="text-align: right;margin:0 30px 0 0;"> -->
             <button type="button" class="selectAllButton"
                 style="margin:0;padding:3px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;display: inline;position:fixed; right: 100px;">テキストをコピー</button>
