@@ -10,11 +10,9 @@
 <body>
 
     <!-- <div style="display:flex; justify-content:space-around" ;> -->
-    <section style="width:45%;position:fixed;left:30px;">
-
+    <section style="width:45%;position:fixed;left:30px;top:10px;height: 95vh;overflow:auto;">
         <p style="color:rgb(245, 66, 158);font-size:9px;font-family: sans-serif;margin:0;">
-            テキスト入力欄を下に広げすぎると一部要素がスクリーン下にはみ出してしまう可能性あり。</p>
-        <p style="color:rgb(245, 66, 158);font-size:9px;font-family: sans-serif;;margin:0;">その場合テキスト入力欄のサイズを元に戻してください。
+            画面を初期状態に戻すにはリロードしてください。</p>
         </p>
         <!-- Ask for internet distribution availability -->
         <div>
@@ -80,7 +78,7 @@
 
                     <!-- select movie genre -->
                     <div style=" display: flex; align-items: center;margin: 0 0 20px 0">
-                        <div style="margin:0 30px 0 0;">
+                        <div style="margin:0 10px 0 0;">
                             <label style="margin: 0 5px 0 0; font-family: sans-serif;">入稿先</label>
                             <select class="submissionDestination" name="choice" style="width:5em;height:2.1em;">
                                 <option value="国際" selected style="font-family: sans-serif;">国際</option>
@@ -164,7 +162,7 @@
 
                     <!-- credit text -->
                     <!-- start -->
-                    <div class="creditTextContainer" style="display: none; margin:0 0 30px 0;align-items: center;">
+                    <div class="creditTextContainer" style="display: none; margin:0 0 10px 0;align-items: center;">
                         <label for="name" style="font-family: sans-serif;">クレジット表記</label>
                         <textarea type="text" id="creditText" name="name" size="50"
                             style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
@@ -176,14 +174,9 @@
                             　style="margin:0 0 20px 0;" checked />
                         <label for="internetOK" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットOK</label>
 
-                        <input type="radio" id="partlyInternetNG" name="eachMovieInternet" value="一部インターネットNG"
-                            style="margin:0 0 10px 10px;" />
-                        <label for="partlyInternetNG"
-                            style="margin:0 0 20px 0;font-family: sans-serif;">一部インターネットNG</label>
-
                         <input type="radio" id="internetNG" name="eachMovieInternet" value="インターネットNG"
                             style="margin:0 0 10px 10px;" />
-                        <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">全部インターネットNG</label>
+                        <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットNG</label>
                     </div>
 
                     <script>
@@ -225,7 +218,7 @@
         </div>
     </section>
 
-    <section style="display: flex;justify-content: right;">
+    <section style="display: flex;justify-content: right;margin:10px 0 0 0;">
         <div id="displayArea"
             style="width:40%; background-color:rgb(235, 207, 52, 0.5);padding:10px;min-height:500px;margin:0 50px 0 0;">
             <!-- <div style="text-align: right;margin:0 30px 0 0;"> -->
@@ -241,10 +234,7 @@
     </div>
     <!-- </div> -->
 
-    <div style="display:flex; justify-content: right;margin:0 150px 0 0;">
-        <button type="button" class="clearAllButton"
-            style="margin:30px 0 0 0;padding:10px 100px; background-color:rgba(0, 153, 54, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;font-size:1em;">ページを全てクリア</button>
-    </div>
+
 
     <!-- ------------------------------------------------------------------------------------ 
     JavaScript from here
@@ -304,7 +294,7 @@
 
             //assign movie special notes text to variable
             var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
-            var movieSpecialNotes
+            var movieSpecialNotes = '';
             var specialNotes = document.querySelector('.specialNotes');
 
             specialNotes.addEventListener('change', function () {
@@ -574,13 +564,6 @@
                 }
             });
 
-
-
-
-
-
-
-
             /////////////////////
             //Clear input field//
             /////////////////////
@@ -598,6 +581,9 @@
 
                 formattedDate = '';
                 registerDateInput.value = '';
+
+                submissionDestination = '国際'
+                submissionDestination.value = ''
 
                 movieNumber = '';
                 movieNum.value = '';
