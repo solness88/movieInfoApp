@@ -252,6 +252,7 @@
             var movieDescription = document.querySelector('.movieDescription');
 
             // variables for submission
+            var submissionDestinationValue = '国際'
             var submissionDestination = document.querySelector('.submissionDestination');
             var submitButton = document.querySelector('.submitButton');
 
@@ -328,6 +329,10 @@
                 inputPromptText.style.display = 'none'; // 非表示
 
             })
+
+            submissionDestination.addEventListener('change', function () {
+                submissionDestinationValue = this.value;
+            });
 
             //movie register date
             var formattedDate = '';
@@ -582,8 +587,9 @@
                 formattedDate = '';
                 registerDateInput.value = '';
 
-                submissionDestination = '国際'
-                submissionDestination.value = ''
+                //clear submission destination value to "国際"
+                submissionDestinationValue = '国際'
+                submissionDestination.value = '国際'
 
                 movieNumber = '';
                 movieNum.value = '';
@@ -655,7 +661,7 @@
                 <p style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >◾️${movieDescriptionText}</p>
                 <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</p>
 
-                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestination.value}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestinationValue}</p>
                 <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${selectedNumber}</p>
 
                 ${movieNumber ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</p>` : ''}
