@@ -199,8 +199,6 @@
 
                     <!-- input field of special notes -->
                     <div style="display:none; margin:0 0 20px 0" id="eachMovieCautionContainer">
-                        <!-- <label for="name" style="font-family: sans-serif;">使用注意など</label> -->
-
                         <textarea type="text" class="eachMovieCaution" name="name" size="50"
                             style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
                     </div>
@@ -356,7 +354,8 @@
                 movieNumber = this.value;
             })
 
-            var selectedNumber = '';
+            // var selectedNumber = '';
+            var submissionNumValue = '';
             var inputElement = document.querySelector('#submissionNumInput');
             var selectElement = document.querySelector('#submissionNum');
             for (var i = 1; i <= 300; i++) {
@@ -369,18 +368,21 @@
             inputElement.addEventListener('input', function () {
 
                 // get the selected number and assign it to selectedNumber
-                selectedNumber = this.value;
+                // selectedNumber = this.value;
+                submissionNumValue = this.value;
             });
 
             // ダイアログリストがクリックされたときに入力値をクリアする
             inputElement.addEventListener('click', function () {
                 inputElement.value = '';
-                selectedNumber = '';
+                // selectedNumber = '';
+                submissionNumValue = '';
             });
 
             inputElement.addEventListener('mousedown', function () {
                 inputElement.value = '';
-                selectedNumber = '';
+                // selectedNumber = '';
+                submissionNumValue = '';
             });
 
             /////////////////////////////////////////////////////////////////
@@ -580,10 +582,11 @@
             var confirmClearButton = document.querySelector(".confirmClearButton")
             confirmClearButton.addEventListener('click', function () {
 
-                //reset variables
+                //clear movie description text
                 movieDescriptionText = '';
                 movieDescription.value = '';
 
+                //clear submission date
                 formattedDate = '';
                 registerDateInput.value = '';
 
@@ -591,9 +594,14 @@
                 submissionDestinationValue = '国際'
                 submissionDestination.value = '国際'
 
+                //clear movie number
                 movieNumber = '';
                 movieNum.value = '';
-                selectedNumber = '';
+
+
+                // selectedNumber = '';
+                //clear submission number
+                submissionNumValue = '';
                 submissionNumInput.value = '';
 
                 copyRight = '';
@@ -603,18 +611,20 @@
                 thirdPartyInput.value = '';
                 thirdParty.style.display = "none";
 
+                //clear "must courtesy" radio button field
                 credit = '';
                 document.querySelector('#noCredit').checked = true;
                 creditText = '';
                 creditInputContainer.style.display = "none";
                 creditInputElement.value = '';
 
-                //clear internet radiobutton and its variable 
+                //clear "internet availability for each movie" radio button field
                 document.querySelector('#internetOK').checked = true;
                 internetAvailability = '';
 
                 arrivalDate = '';
                 deliverDate.value = '';
+
                 formattedDeliverDate = '';
                 deliverDateContainer.value = '';
                 deliverDateContainer.style.display = 'none';
@@ -662,7 +672,7 @@
                 <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</p>
 
                 <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestinationValue}</p>
-                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${selectedNumber}</p>
+                <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionNumValue}</p>
 
                 ${movieNumber ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</p>` : ''}
 
