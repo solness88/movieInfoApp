@@ -135,8 +135,7 @@
                                 <option value="CNN" class="thirdPartyAlt" style="font-family: sans-serif;">CNN
                                 </option>
                                 <option value="TV GLOBO" class="thirdPartyAlt" style="font-family: sans-serif;">
-                                    TV
-                                    GLOBO</option>
+                                    TV GLOBO</option>
                                 <option value="CCTV" class="thirdPartyAlt" style="font-family: sans-serif;">CCTV
                                 </option>
                             </datalist>
@@ -161,7 +160,6 @@
                     </div>
 
                     <!-- credit text -->
-                    <!-- start -->
                     <div class="creditTextContainer" style="display: none; margin:0 0 10px 0;align-items: center;">
                         <label for="name" style="font-family: sans-serif;">クレジット表記</label>
                         <textarea type="text" id="creditText" name="name" size="50"
@@ -406,11 +404,16 @@
                     copyRight == "AP" ||
                     copyRight == "CCTV") {
                     deliverDateContainer.style.display = "block";
+
                     thirdParty.style.display = "none";
                     thirdPartyInput.value = '';
                     thirdPartyValue = '';
-                    formattedDeliverDate = '';
 
+                    // arrivalDateValue = '';
+                    // deliverDate.value = '';
+
+                    // formattedDeliverDate = '';
+                    console.log("こんにちは")
                 } else {
                     thirdParty.style.display = "none";
                     deliverDateContainer.style.display = "none";
@@ -437,6 +440,7 @@
             };
 
             copyRightInput.addEventListener("input", handleCopyRightInput);
+            copyRightInput.addEventListener("change", deliverDateManipulate);
 
             thirdPartyInput.addEventListener('input', function () {
                 thirdPartyValue = this.value;
@@ -471,14 +475,14 @@
             function deliverDateManipulate() {
                 copyRight = handleCopyRightInput();
 
-                var deliverDate;
+                var deliverDateValue;
                 //
-                var selectedDate = new Date(document.querySelector('.arrivalDate').value);
-                deliverDate = selectedDate;
+                deliverDateValue = new Date(document.querySelector('.arrivalDate').value);
+                // deliverDate = selectedDate;
 
-                var deliverYear = deliverDate.getFullYear();
-                var deliverMonth = deliverDate.getMonth() + 1; // 月は 0 から始まるため、1 を加える
-                var deliverDay = deliverDate.getDate();
+                var deliverYear = deliverDateValue.getFullYear();
+                var deliverMonth = deliverDateValue.getMonth() + 1; // 月は 0 から始まるため、1 を加える
+                var deliverDay = deliverDateValue.getDate();
 
                 // 目的の形式にフォーマットする
                 if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
@@ -486,17 +490,18 @@
                 } else {
                     arrivalDateValue = "";
                 }
+
                 if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材") {
-                    selectedDate.setDate(selectedDate.getDate() + 14);
+                    deliverDateValue.setDate(deliverDateValue.getDate() + 10);
                 } else if (copyRight == "RTV") {
-                    selectedDate.setDate(selectedDate.getDate() + 30);
+                    deliverDateValue.setDate(deliverDateValue.getDate() + 20);
                 } else if (copyRight == "AP") {
-                    selectedDate.setDate(selectedDate.getDate() + 45);
+                    deliverDateValue.setDate(deliverDateValue.getDate() + 30);
                 }
                 // 配信日の入力値を取得して変数に格納
-                var year = selectedDate.getFullYear();
-                var month = selectedDate.getMonth() + 1; // 月は 0 から始まるため、1 を加える
-                var day = selectedDate.getDate();
+                var year = deliverDateValue.getFullYear();
+                var month = deliverDateValue.getMonth() + 1; // 月は 0 から始まるため、1 を加える
+                var day = deliverDateValue.getDate();
 
                 // 目的の形式にフォーマットする
                 if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
@@ -577,7 +582,7 @@
 
             // カウンターをインクリメント
             var eachSozaiArea = document.querySelector('.eachSozai1');
-            // var deliverDate = document.querySelector('.arrivalDate');
+            var deliverDate = document.querySelector('.arrivalDate');
 
             var confirmClearButton = document.querySelector(".confirmClearButton")
             confirmClearButton.addEventListener('click', function () {
@@ -720,10 +725,10 @@
             })
         });
 
-        var clearAllButton = document.querySelector('.clearAllButton')
-        clearAllButton.addEventListener('click', function () {
-            location.reload()
-        })
+        // var clearAllButton = document.querySelector('.clearAllButton')
+        // clearAllButton.addEventListener('click', function () {
+        //     location.reload()
+        // })
     </script>
 </body>
 
