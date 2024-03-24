@@ -233,8 +233,11 @@
     JavaScript from here
     ---------------------------------------------------------------------------------- -->
     <script>
-        //Internet distribution condition of the entire video image
         document.addEventListener('DOMContentLoaded', function () {
+
+            ////////////////////
+            //declare variables
+            ////////////////////
 
             //input prompt text
             var inputPromptText = document.querySelector('#inputPromptText');
@@ -254,7 +257,7 @@
             //submit button
             var submitButton = document.querySelector('.submitButton');
 
-            var copyRight = "";
+            var copyRight = '';
             var thirdPartyValue;
             var copyRightInput = document.querySelector("#copyrightInput");
             var thirdParty = document.querySelector(".thirdPartySelection");
@@ -280,16 +283,17 @@
             var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
             var internetAccess = '';
 
+            //assign movie special notes text to variable
+            var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
+            var movieSpecialNotes = '';
+            var specialNotes = document.querySelector('.specialNotes');
+
+            //radio button asking whether internet distribution availability for whole edited movie
             upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
                 upperRadioButtonInternet.addEventListener('change', function () {
                     internetAccess = this.value;
                 })
             });
-
-            //assign movie special notes text to variable
-            var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
-            var movieSpecialNotes = '';
-            var specialNotes = document.querySelector('.specialNotes');
 
             specialNotes.addEventListener('change', function () {
                 movieSpecialNotes = this.value;
@@ -472,7 +476,6 @@
                 //
                 if (document.querySelector('.arrivalDate').value) {
                     deliverDateValue = new Date(document.querySelector('.arrivalDate').value)
-
 
                     var deliverYear = deliverDateValue.getFullYear();
 
