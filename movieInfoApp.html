@@ -9,11 +9,12 @@
 
 <body>
 
-    <!-- <div style="display:flex; justify-content:space-around" ;> -->
+    <!-- input field: this field is fixed on the right side of the screen -->
     <section style="width:45%;position:fixed;left:30px;top:10px;height: 95vh;overflow:auto;">
         <p style="color:rgb(245, 66, 158);font-size:9px;font-family: sans-serif;margin:0;">
             画面を初期状態に戻すにはリロードしてください。</p>
         </p>
+
         <!-- Ask for internet distribution availability -->
         <div>
             <form>
@@ -122,7 +123,7 @@
                             </datalist>
                         </div>
 
-                        <!-- 第三者素材の入力・選択 -->
+                        <!-- Input and choose of 3rd party's movie -->
                         <div style="display: none;" class="thirdPartySelection">
                             <label for="thirdPartyInput" style="font-family: sans-serif;">第三者素材を入力</label>
                             <input list="thirdParty" id="thirdPartyInput" name="thirdPartyInput">
@@ -150,7 +151,7 @@
 
                     <!-- radio buttons asking for whether each movie needs courtesy or not-->
                     <div>
-                        <input type="radio" id="noCredit" name="askCourtesy" value="" 　style="margin:0 0 20px 0;"
+                        <input type="radio" id="noCredit" name="askCourtesy" value="" style="margin:0 0 20px 0;"
                             checked />
                         <label for="noCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">クレジット不要</label>
 
@@ -168,8 +169,8 @@
 
                     <!-- radio buttons asking for each movie internet distribution-->
                     <div>
-                        <input type="radio" id="internetOK" name="eachMovieInternet" value=""
-                            　style="margin:0 0 20px 0;" checked />
+                        <input type="radio" id="internetOK" name="eachMovieInternet" value="" style="margin:0 0 20px 0;"
+                            checked />
                         <label for="internetOK" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットOK</label>
 
                         <input type="radio" id="internetNG" name="eachMovieInternet" value="インターネットNG"
@@ -214,13 +215,12 @@
         </div>
     </section>
 
+    <!-- Display the movie info entered on the right side of the screen. This field is located on the left side -->
     <section style="display: flex;justify-content: right;margin:10px 0 0 0;">
         <div id="displayArea"
             style="width:40%; background-color:rgb(235, 207, 52, 0.5);padding:10px;min-height:500px;margin:0 50px 0 0;">
-            <!-- <div style="text-align: right;margin:0 30px 0 0;"> -->
             <button type="button" class="selectAllButton"
                 style="margin:0;padding:3px 10px; background-color:rgba(215, 217, 219, 0.5); border:solid 1px;border-radius: 3px;font-family: sans-serif;display: inline;position:fixed; right: 100px;">テキストをコピー</button>
-            <!-- </div> -->
             <div id="movieInfo">
                 <p style="margin:0; font-family: sans-serif;">【素材情報】</p>
                 <div class="sozaiArea" style="font-family: sans-serif;"></div>
@@ -228,16 +228,16 @@
             </div>
     </section>
     </div>
-    <!-- </div> -->
 
-
-
-    <!-- ------------------------------------------------------------------------------------ 
+    <!-- -----------------------------------------------------------------------------------
     JavaScript from here
     ---------------------------------------------------------------------------------- -->
     <script>
         //Internet distribution condition of the entire video image
         document.addEventListener('DOMContentLoaded', function () {
+
+            //input prompt text
+            var inputPromptText = document.querySelector('#inputPromptText');
 
             //variables for internet distribution of the whole movie
             var sozai = document.querySelector('.sozaiArea');
@@ -250,9 +250,9 @@
             // variables for submission
             var submissionDestinationValue = '国際'
             var submissionDestination = document.querySelector('.submissionDestination');
-            var submitButton = document.querySelector('.submitButton');
 
-            var inputPromptText = document.querySelector('#inputPromptText');
+            //submit button
+            var submitButton = document.querySelector('.submitButton');
 
             var copyRight = "";
             var thirdPartyValue;
@@ -262,10 +262,7 @@
             var thirdPartyInput = document.querySelector('#thirdPartyInput');
             var counter = 1;
 
-
-            var arrivalDateValue;
-
-
+            var arrivalDateValue = '';
 
             // create new div element
             var newDiv = document.createElement("div");
@@ -409,11 +406,6 @@
                     thirdPartyInput.value = '';
                     thirdPartyValue = '';
 
-                    // arrivalDateValue = '';
-                    // deliverDate.value = '';
-
-                    // formattedDeliverDate = '';
-                    console.log("こんにちは")
                 } else {
                     thirdParty.style.display = "none";
                     deliverDateContainer.style.display = "none";
@@ -475,39 +467,47 @@
             function deliverDateManipulate() {
                 copyRight = handleCopyRightInput();
 
-                var deliverDateValue;
+                var deliverDateValue = '';
+
                 //
-                deliverDateValue = new Date(document.querySelector('.arrivalDate').value);
-                // deliverDate = selectedDate;
+                if (document.querySelector('.arrivalDate').value) {
+                    deliverDateValue = new Date(document.querySelector('.arrivalDate').value)
 
-                var deliverYear = deliverDateValue.getFullYear();
-                var deliverMonth = deliverDateValue.getMonth() + 1; // 月は 0 から始まるため、1 を加える
-                var deliverDay = deliverDateValue.getDate();
 
-                // 目的の形式にフォーマットする
-                if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
-                    arrivalDateValue = deliverYear + "年" + parseInt(deliverMonth, 10) + "月" + parseInt(deliverDay, 10) + "日";
-                } else {
-                    arrivalDateValue = "";
-                }
+                    var deliverYear = deliverDateValue.getFullYear();
 
-                if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材") {
-                    deliverDateValue.setDate(deliverDateValue.getDate() + 10);
-                } else if (copyRight == "RTV") {
-                    deliverDateValue.setDate(deliverDateValue.getDate() + 20);
-                } else if (copyRight == "AP") {
-                    deliverDateValue.setDate(deliverDateValue.getDate() + 30);
-                }
-                // 配信日の入力値を取得して変数に格納
-                var year = deliverDateValue.getFullYear();
-                var month = deliverDateValue.getMonth() + 1; // 月は 0 から始まるため、1 を加える
-                var day = deliverDateValue.getDate();
+                    //Add 1 because "month" starts with 0
+                    var deliverMonth = deliverDateValue.getMonth() + 1;
+                    var deliverDay = deliverDateValue.getDate();
 
-                // 目的の形式にフォーマットする
-                if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
-                    formattedDeliverDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
-                } else {
-                    formattedDeliverDate = ""
+                    // format variable
+                    if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
+                        arrivalDateValue = deliverYear + "年" + parseInt(deliverMonth, 10) + "月" + parseInt(deliverDay, 10) + "日";
+                    } else {
+                        arrivalDateValue = "";
+                    }
+
+                    if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材") {
+                        deliverDateValue.setDate(deliverDateValue.getDate() + 10);
+                    } else if (copyRight == "RTV") {
+                        deliverDateValue.setDate(deliverDateValue.getDate() + 20);
+                    } else if (copyRight == "AP") {
+                        deliverDateValue.setDate(deliverDateValue.getDate() + 30);
+                    }
+
+                    // 配信日の入力値を取得して変数に格納
+                    var year = deliverDateValue.getFullYear();
+
+                    //Add 1 because "month" starts with 0
+                    var month = deliverDateValue.getMonth() + 1;
+                    var day = deliverDateValue.getDate();
+
+                    // 目的の形式にフォーマットする
+                    if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
+                        formattedDeliverDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+                    } else {
+                        formattedDeliverDate = ""
+                    }
                 }
             };
 
