@@ -387,7 +387,7 @@
             //display 3rd party's alternatives when "3rd party" is selected//
             /////////////////////////////////////////////////////////////////
 
-            
+
             var deliverDateContainer = document.querySelector(".deliverDateContainer");
 
             function handleCopyRightInput() {
@@ -580,7 +580,7 @@
             //Clear input field//
             /////////////////////
 
-            // カウンターをインクリメント
+            // 
             var eachSozaiArea = document.querySelector('.eachSozai1');
             var deliverDate = document.querySelector('.arrivalDate');
 
@@ -603,15 +603,16 @@
                 movieNumber = '';
                 movieNum.value = '';
 
-
                 // selectedNumber = '';
                 //clear submission number
                 submissionNumValue = '';
                 submissionNumInput.value = '';
 
+                //clear copy right field
                 copyRight = '';
                 copyRightInput.value = '';
 
+                //clear 3rd party field
                 thirdPartyValue = '';
                 thirdPartyInput.value = '';
                 thirdParty.style.display = "none";
@@ -627,9 +628,11 @@
                 document.querySelector('#internetOK').checked = true;
                 internetAvailability = '';
 
+                //clear arrivel date value
                 arrivalDateValue = '';
                 deliverDate.value = '';
 
+                //clear deliverdate value
                 formattedDeliverDate = '';
                 deliverDateContainer.value = '';
                 deliverDateContainer.style.display = 'none';
@@ -644,7 +647,7 @@
 
                 counter++;
 
-                // eachSozaiクラスを持つ要素を取得
+                // get element with "eachSozai+ counter" class
                 var eachSozaiElement = document.querySelector('.eachSozai' + (counter - 1));
 
                 var paragraphs = eachSozaiElement.querySelectorAll('p');
@@ -699,36 +702,32 @@
 
                 ${internetAvailability ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${internetAvailability}</p>` : ''}
 
-                ${eachMovieCautionVariable ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${eachMovieCautionVariable}</p>` : ''}
+                ${eachMovieCautionVariable ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">${eachMovieCautionVariable}</p>` : ''}
                 
             `;
 
             });
 
+            //function for select all button
             selectAllButton.addEventListener('click', function () {
                 var range = document.createRange();
                 range.selectNodeContents(displayArea);
                 var selection = window.getSelection();
                 selection.removeAllRanges();
                 selection.addRange(range);
-                // コピー操作を実行する
+
+                // copy texts on the right side
                 document.execCommand('copy');
 
+                //show alert window after 0.3 seconds
                 setTimeout(function () {
-                    // コピー操作を実行する
 
-
-
-                    // アラートウィンドウを表示する
+                    // show alert window
                     alert('テキストがコピーされました！');
-                }, 300); // 1秒後に実行する
+                }, 300);
             })
         });
 
-        // var clearAllButton = document.querySelector('.clearAllButton')
-        // clearAllButton.addEventListener('click', function () {
-        //     location.reload()
-        // })
     </script>
 </body>
 
