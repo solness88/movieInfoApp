@@ -358,7 +358,6 @@
                 movieNumber = this.value;
             })
 
-            // var selectedNumber = '';
             var submissionNumValue = '';
             var inputElement = document.querySelector('#submissionNumInput');
             var selectElement = document.querySelector('#submissionNum');
@@ -371,21 +370,18 @@
 
             inputElement.addEventListener('input', function () {
 
-                // get the selected number and assign it to selectedNumber
-                // selectedNumber = this.value;
+                // get the selected number and assign it to submissionNumValue
                 submissionNumValue = this.value;
             });
 
-            // ダイアログリストがクリックされたときに入力値をクリアする
+            // 
             inputElement.addEventListener('click', function () {
                 inputElement.value = '';
-                // selectedNumber = '';
                 submissionNumValue = '';
             });
 
             inputElement.addEventListener('mousedown', function () {
                 inputElement.value = '';
-                // selectedNumber = '';
                 submissionNumValue = '';
             });
 
@@ -447,23 +443,25 @@
                 thirdPartyValue = this.value;
             });
 
-            // 「版権」がクリックされたときに入力値をクリアする
+            // clear data when copyrignt input is clicked
             copyRightInput.addEventListener('click', function () {
                 copyRightInput.value = '';
                 copyRight = '';
             });
 
-            //
+            // clear data when copyrignt input is clicked
             copyRightInput.addEventListener('mousedown', function () {
                 copyRightInput.value = '';
                 copyRight = '';
             });
 
-            // 「版権」がクリックされたときに既存の入力値をクリアする
+            // clear data when 3rd party input is clicked
             thirdPartyInput.addEventListener('click', function () {
                 thirdPartyInput.value = '';
+                thirdPartyValue = '';
             });
 
+            // clear data when 3rd party input is clicked
             thirdPartyInput.addEventListener('mousedown', function () {
                 thirdPartyInput.value = '';
                 thirdPartyValue = '';
@@ -611,7 +609,6 @@
                 movieNumber = '';
                 movieNum.value = '';
 
-                // selectedNumber = '';
                 //clear submission number
                 submissionNumValue = '';
                 submissionNumInput.value = '';
@@ -640,8 +637,10 @@
                 arrivalDateValue = '';
                 arrivalDate.value = '';
 
-                //clear deliverdate value
+                //clear expire date value
                 expireDate = '';
+
+                //clear arrival date value
                 arrivalDateContainer.value = '';
                 arrivalDateContainer.style.display = 'none';
 
