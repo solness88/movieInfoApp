@@ -472,7 +472,7 @@
             //format delivery date//
             ////////////////////////
 
-            // ボタンがクリックされたときのイベントリスナーを追加
+            // add event listener when the button is clicked
             function deliverDateManipulate() {
                 copyRight = handleCopyRightInput();
 
@@ -503,14 +503,14 @@
                         deliverDateValue.setDate(deliverDateValue.getDate() + 30);
                     }
 
-                    // 配信日の入力値を取得して変数に格納
+                    // get input data of arrival date, assign to the variable
                     var year = deliverDateValue.getFullYear();
 
                     //Add 1 because "month" starts with 0
                     var month = deliverDateValue.getMonth() + 1;
                     var day = deliverDateValue.getDate();
 
-                    // 目的の形式にフォーマットする
+                    // format into desiable date
                     if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
                         formattedDeliverDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
                     } else {
@@ -542,11 +542,11 @@
             // check for changes of radio button field and display/hide credit text input field
             radioButtons.forEach(function (radioButton) {
                 radioButton.addEventListener('change', function () {
-                    // 選択された値が "※要クレジット" の場合、クレジット表記の入力フィールドを表示する
+                    // Show the courtesy input field if "must courtesy" is selected
                     if (this.value === "※要クレジット") {
                         creditInputContainer.style.display = "flex";
                     } else {
-                        // それ以外の場合は非表示にする
+                        // hide otherwise
                         creditInputContainer.style.display = "none";
                         document.querySelector('#creditText').value = '';
                         creditText = '';
