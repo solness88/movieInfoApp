@@ -143,7 +143,7 @@
                         </div>
                     </div>
 
-                    <!-- movie deliver date -->
+                    <!-- movie arrival date -->
                     <div style="display:none; margin: 0 0 20px 0;" class="arrivalDateContainer">
                         <label for="date" style="font-family: sans-serif;">配信日：</label>
                         <input type="date" class="arrivalDate"></input>
@@ -246,11 +246,20 @@
             var sozai = document.querySelector('.sozaiArea');
             var radioButtons = document.querySelectorAll('input[type="radio"][name="internet"]');
 
+            //variables for movie special notes text
+            var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
+            var movieSpecialNotes = '';
+            var specialNotes = document.querySelector('.specialNotes');
+
             //variable for movie title
             var movieDescriptionText = ''
             var movieDescription = document.querySelector('.movieDescription');
 
-            // variables for submission
+            //register date, formatted date
+            var registerDateInput = document.querySelector('.registerDate');
+            var formattedDate = '';
+
+            // variables for submission destination
             var submissionDestinationValue = '国際'
             var submissionDestination = document.querySelector('.submissionDestination');
 
@@ -288,10 +297,7 @@
             var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
             var internetAccess = '';
 
-            //assign movie special notes text to variable
-            var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
-            var movieSpecialNotes = '';
-            var specialNotes = document.querySelector('.specialNotes');
+
 
             //radio button asking whether internet distribution availability for whole edited movie
             upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
@@ -311,7 +317,6 @@
                     checkSpecialNotesContainer.style.display = "block";
                 } else {
                     checkSpecialNotesContainer.style.display = "none";
-
                 }
             });
 
@@ -337,8 +342,7 @@
             });
 
             //movie register date
-            var formattedDate = '';
-            var registerDateInput = document.querySelector('.registerDate');
+
 
             registerDateInput.addEventListener('change', function () {
                 var registerDate = registerDateInput.value;
@@ -466,8 +470,9 @@
                 thirdPartyInput.value = '';
                 thirdPartyValue = '';
             });
+
             ////////////////////////
-            //format delivery date//
+            //format arrival date//
             ////////////////////////
 
             // add event listener when the button is clicked
@@ -480,15 +485,15 @@
                 if (document.querySelector('.arrivalDate').value) {
                     arrivalDateToProcess = new Date(document.querySelector('.arrivalDate').value)
 
-                    var deliverYear = arrivalDateToProcess.getFullYear();
+                    var arrivalYear = arrivalDateToProcess.getFullYear();
 
                     //Add 1 because "month" starts with 0
-                    var deliverMonth = arrivalDateToProcess.getMonth() + 1;
-                    var deliverDay = arrivalDateToProcess.getDate();
+                    var arrivalMonth = arrivalDateToProcess.getMonth() + 1;
+                    var arrivalDay = arrivalDateToProcess.getDate();
 
                     // format variable
                     if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
-                        arrivalDateValue = deliverYear + "年" + parseInt(deliverMonth, 10) + "月" + parseInt(deliverDay, 10) + "日";
+                        arrivalDateValue = arrivalYear + "年" + parseInt(arrivalMonth, 10) + "月" + parseInt(arrivalDay, 10) + "日";
                     } else {
                         arrivalDateValue = "";
                     }
