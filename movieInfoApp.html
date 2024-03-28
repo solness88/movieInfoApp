@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./upperRadioButton.js"></script>
     <title>素材情報作成くん</title>
 </head>
 
@@ -295,7 +294,21 @@
             // variables for expireDate, default value is "none"
             var expireDate = '';
 
-            upperRadioButton();
+            var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
+            var internetAccess = '';
+
+
+
+            //radio button asking whether internet distribution availability for whole edited movie
+            upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
+                upperRadioButtonInternet.addEventListener('change', function () {
+                    internetAccess = this.value;
+                })
+            });
+
+            specialNotes.addEventListener('change', function () {
+                movieSpecialNotes = this.value;
+            })
 
             var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
@@ -329,6 +342,8 @@
             });
 
             //movie register date
+
+
             registerDateInput.addEventListener('change', function () {
                 var registerDate = registerDateInput.value;
                 var parts = registerDate.split("-");
