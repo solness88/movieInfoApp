@@ -178,7 +178,7 @@
                         <label for="internetNG" style="margin:0 0 20px 0;font-family: sans-serif;">インターネットNG</label>
                     </div>
 
-                    <script>
+                    <!-- <script>
                         var radioButtonsInternet = document.querySelectorAll('input[type="radio"][name="eachMovieInternet"]');
                         var internetAvailability = '';
 
@@ -187,7 +187,7 @@
                                 internetAvailability = this.value;
                             })
                         })
-                    </script>
+                    </script> -->
 
                     <!-- checkbox asking for any special notes for each movie -->
                     <div style="margin: 0 0 10px 0;">
@@ -562,6 +562,26 @@
             creditInputElement.addEventListener('change', function () {
                 creditText = this.value;
             })
+
+
+
+
+            var radioButtonsInternet = document.querySelectorAll('input[type="radio"][name="eachMovieInternet"]');
+            var internetAvailability = '';
+
+            radioButtonsInternet.forEach(function (radioButtonInternet) {
+                radioButtonInternet.addEventListener('change', function () {
+                    internetAvailability = this.value;
+                })
+            })
+
+
+
+
+
+
+
+
 
             ///////////////////////////////////////////////////////////////
             //Special notes for each movie//
