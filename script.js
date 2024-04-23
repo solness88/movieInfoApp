@@ -4,34 +4,42 @@ document.addEventListener('DOMContentLoaded', function () {
   //declare variables
   ////////////////////
 
-  //input prompt text
+  //1. input prompt text
   var inputPromptText = document.querySelector('#inputPromptText');
 
-  //variables for internet distribution of the whole movie
+  //2. internet distribution of the whole movie
   var sozai = document.querySelector('.sozaiArea');
   var radioButtons = document.querySelectorAll('input[type="radio"][name="internet"]');
 
-  //variables for movie special notes text
+  //3. movie special notes text
   var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
   var movieSpecialNotes = '';
   var specialNotes = document.querySelector('.specialNotes');
+  var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
-  //variable for movie title
+  //4. pink submit button of the whole movie info, located upperside
+  var upperSubmitButton = document.querySelector('.upperSubmitButton');
+
+  //. movie title
   var movieDescriptionText = ''
   var movieDescription = document.querySelector('.movieDescription');
 
-  //register date, formatted date
+  //5. register date, formatted date
   var registerDateInput = document.querySelector('.registerDate');
   var formattedDate = '';
 
-  // variables for submission destination
+  //6. submission destination
   var submissionDestinationValue = '国際'
   var submissionDestination = document.querySelector('.submissionDestination');
 
-  //submit button
+  //movie number variables
+  var movieNumber = '';
+  var movieNum = document.querySelector('.movieNum')
+
+  //7. submit button
   var submitButton = document.querySelector('.submitButton');
 
-  //copyright variables
+  //8. copyright variables
   var copyRight = '';
   var copyRightInput = document.querySelector("#copyrightInput");
 
@@ -75,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
     movieSpecialNotes = this.value;
   })
 
-  var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
   checkSpecialNotes.addEventListener('click', function () {
     if (checkSpecialNotes.checked) {
@@ -85,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  var upperSubmitButton = document.querySelector('.upperSubmitButton');
+  // var upperSubmitButton = document.querySelector('.upperSubmitButton');
   upperSubmitButton.addEventListener('click', function () {
     sozai.innerHTML = `
       <p style="margin:0;">${internetAccess}</p>
@@ -121,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
   //////////////////////////
   //create register number//
   //////////////////////////
-  var movieNumber = '';
-  var movieNum = document.querySelector('.movieNum')
+  // var movieNumber = '';
+  // var movieNum = document.querySelector('.movieNum')
   movieNum.addEventListener('change', function () {
     movieNumber = this.value;
   })
@@ -361,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function () {
     eachMovieCautionVariable = this.value;
   })
 
-  var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
   checkEachMovieCaution.addEventListener('click', function () {
     if (checkEachMovieCaution.checked) {
