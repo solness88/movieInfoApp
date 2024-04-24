@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var radioButtons = document.querySelectorAll('input[type="radio"][name="internet"]');
 
   //3. movie special notes text
-  var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer')
+  var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
   var movieSpecialNotes = '';
   var specialNotes = document.querySelector('.specialNotes');
   var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var upperSubmitButton = document.querySelector('.upperSubmitButton');
 
   //. movie title
-  var movieDescriptionText = ''
+  var movieDescriptionText = '';
   var movieDescription = document.querySelector('.movieDescription');
 
   //5. register date, formatted date
@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
   var formattedDate = '';
 
   //6. submission destination
-  var submissionDestinationValue = '国際'
+  var submissionDestinationValue = '国際';
   var submissionDestination = document.querySelector('.submissionDestination');
 
   //movie number variables
   var movieNumber = '';
-  var movieNum = document.querySelector('.movieNum')
+  var movieNum = document.querySelector('.movieNum');
 
   //7. submit button
   var submitButton = document.querySelector('.submitButton');
@@ -76,12 +76,12 @@ document.addEventListener('DOMContentLoaded', function () {
   upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
     upperRadioButtonInternet.addEventListener('change', function () {
       internetAccess = this.value;
-    })
+    });
   });
 
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
-  })
+  });
 
   // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sozai.innerHTML = `
       <p style="margin:0;">${internetAccess}</p>
       <p style="margin:0;">${movieSpecialNotes}</p>
-     `
+     `;
   });
 
   //assign movie title text to variable
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // hide inputPromptText when the text is entered
     inputPromptText.style.display = 'none'; // 非表示
 
-  })
+  });
 
   submissionDestination.addEventListener('change', function () {
     submissionDestinationValue = this.value;
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // var movieNum = document.querySelector('.movieNum')
   movieNum.addEventListener('change', function () {
     movieNumber = this.value;
-  })
+  });
 
   var submissionNumValue = '';
   var inputElement = document.querySelector('#submissionNumInput');
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
     optionElement.value = i.toString();
     optionElement.textContent = i.toString();
     selectElement.appendChild(optionElement);
-  };
+  }
 
   inputElement.addEventListener('input', function () {
 
@@ -205,13 +205,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (this.value == undefined) {
-      return copyRight
+      return copyRight;
     } else {
-      copyRight = this.value
-      return copyRight
+      copyRight = this.value;
+      return copyRight;
     }
     manipulateArrivalDate();
-  };
+  }
 
   copyRightInput.addEventListener("input", handleCopyRightInput);
   copyRightInput.addEventListener("change", manipulateArrivalDate);
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //
     if (document.querySelector('.arrivalDate').value) {
-      arrivalDateToProcess = new Date(document.querySelector('.arrivalDate').value)
+      arrivalDateToProcess = new Date(document.querySelector('.arrivalDate').value);
 
       var arrivalYear = arrivalDateToProcess.getFullYear();
 
@@ -290,10 +290,10 @@ document.addEventListener('DOMContentLoaded', function () {
       if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材" || copyRight == "RTV" || copyRight == "AP") {
         expireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
       } else {
-        expireDate = ""
+        expireDate = "";
       }
     }
-  };
+  }
 
   arrivalDateContainer.addEventListener('change', manipulateArrivalDate);
 
@@ -305,8 +305,8 @@ document.addEventListener('DOMContentLoaded', function () {
   eachRadioButtons.forEach(function (radioButton) {
     radioButton.addEventListener('change', function () {
       credit = this.value;
-    })
-  })
+    });
+  });
 
   ///////////////
   //credit text//
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var creditInputElement = document.querySelector('#creditText');
   creditInputElement.addEventListener('change', function () {
     creditText = this.value;
-  })
+  });
 
 
 
@@ -345,8 +345,8 @@ document.addEventListener('DOMContentLoaded', function () {
   radioButtonsInternet.forEach(function (radioButtonInternet) {
     radioButtonInternet.addEventListener('change', function () {
       internetAvailability = this.value;
-    })
-  })
+    });
+  });
 
 
 
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   eachMovieCaution.addEventListener('change', function () {
     eachMovieCautionVariable = this.value;
-  })
+  });
 
   // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
@@ -376,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function () {
       eachMovieCautionContainer.style.display = "block";
     } else {
       eachMovieCautionContainer.style.display = "none";
-
     }
   });
 
@@ -388,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var eachSozaiArea = document.querySelector('.eachSozai1');
   var arrivalDate = document.querySelector('.arrivalDate');
 
-  var confirmClearButton = document.querySelector(".confirmClearButton")
+  var confirmClearButton = document.querySelector(".confirmClearButton");
   confirmClearButton.addEventListener('click', function () {
 
     //clear movie description text
@@ -400,8 +399,8 @@ document.addEventListener('DOMContentLoaded', function () {
     registerDateInput.value = '';
 
     //clear submission destination value to "国際"
-    submissionDestinationValue = '国際'
-    submissionDestination.value = '国際'
+    submissionDestinationValue = '国際';
+    submissionDestination.value = '国際';
 
     //clear movie number
     movieNumber = '';
@@ -530,5 +529,5 @@ document.addEventListener('DOMContentLoaded', function () {
       // show alert window
       alert('テキストがコピーされました！');
     }, 300);
-  })
+  });
 });
