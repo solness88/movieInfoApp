@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
 
   ////////////////////
@@ -9,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //2. internet distribution of the whole movie
   var sozai = document.querySelector('.sozaiArea');
-  var radioButtons = document.querySelectorAll('input[type="radio"][name="internet"]');
 
   //3. movie special notes text
   var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
@@ -72,12 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  //radio button asking whether internet distribution availability for whole edited movie
+  // //radio button asking whether internet distribution availability for whole edited movie
   upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
     upperRadioButtonInternet.addEventListener('change', function () {
       internetAccess = this.value;
     });
   });
+
 
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
@@ -335,9 +336,6 @@ document.addEventListener('DOMContentLoaded', function () {
   creditInputElement.addEventListener('change', function () {
     creditText = this.value;
   });
-
-
-
 
   var radioButtonsInternet = document.querySelectorAll('input[type="radio"][name="eachMovieInternet"]');
   var internetAvailability = '';
