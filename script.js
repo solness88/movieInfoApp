@@ -1,3 +1,5 @@
+import upperRadioButtonsInternetAccess, { internetAccess } from "./upperRadioButtonsInternet.js";
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -67,17 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // variables for expireDate, default value is "none"
   var expireDate = '';
 
-  var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
-  var internetAccess = '';
+  upperRadioButtonsInternetAccess();
+
+  // var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
+  // var internetAccess = '';
 
 
 
-  // //radio button asking whether internet distribution availability for whole edited movie
-  upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
-    upperRadioButtonInternet.addEventListener('change', function () {
-      internetAccess = this.value;
-    });
-  });
+  // // //radio button asking whether internet distribution availability for whole edited movie
+  // upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
+  //   upperRadioButtonInternet.addEventListener('change', function () {
+  //     internetAccess = this.value;
+  //   });
+  // });
 
 
   specialNotes.addEventListener('change', function () {
@@ -251,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // add event listener when the button is clicked
   function manipulateArrivalDate() {
-    copyRight = handleCopyRightInput();
+    // copyRight = handleCopyRightInput();
 
     var arrivalDateToProcess = '';
 
