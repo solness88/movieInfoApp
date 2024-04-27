@@ -1,5 +1,6 @@
 import upperRadioButtonsInternetAccess, { internetAccess } from "./upperRadioButtonsInternet.js";
 
+import specialNotes, { movieSpecialNotes } from "./specialNotes.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -15,8 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //3. movie special notes text
   var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
-  var movieSpecialNotes = '';
-  var specialNotes = document.querySelector('.specialNotes');
   var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
   //4. pink submit button of the whole movie info, located upperside
@@ -71,24 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   upperRadioButtonsInternetAccess();
 
-  // var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
-  // var internetAccess = '';
-
-
-
-  // // //radio button asking whether internet distribution availability for whole edited movie
-  // upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
-  //   upperRadioButtonInternet.addEventListener('change', function () {
-  //     internetAccess = this.value;
-  //   });
-  // });
-
-
-  specialNotes.addEventListener('change', function () {
-    movieSpecialNotes = this.value;
-  });
-
-  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+  specialNotes();
 
   checkSpecialNotes.addEventListener('click', function () {
     if (checkSpecialNotes.checked) {
@@ -120,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   //movie register date
-
 
   registerDateInput.addEventListener('change', function () {
     var registerDate = registerDateInput.value;
