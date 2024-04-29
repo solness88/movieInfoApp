@@ -1,4 +1,4 @@
-import upperRadioButtonsInternetAccess, { internetAccess } from "./upperRadioButtonsInternet.js";
+import internetStreaming, { internetAccess } from "./internetAvailability.js";
 
 import specialNotes, { movieSpecialNotes } from "./specialNotes.js";
 
@@ -64,10 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // variables for expireDate, default value is "none"
   var expireDate = '';
 
-
-
   //upper radio buttons to ask whether the movie can be posted on the internet 
-  upperRadioButtonsInternetAccess();
+  internetStreaming();
 
   //special notes on the upperside
   specialNotes();

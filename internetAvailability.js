@@ -2,9 +2,9 @@
 
 var internetAccess = '';
 
-function upperRadioButtonsInternetAccess() {
+function internetStreaming() {
 
-  var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
+  var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="internetStreaming"]');
 
   upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
     upperRadioButtonInternet.addEventListener('change', function () {
@@ -13,5 +13,5 @@ function upperRadioButtonsInternetAccess() {
   });
 }
 
-export default upperRadioButtonsInternetAccess;
+export default internetStreaming;
 export { internetAccess }
