@@ -14,14 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
   //2. internet distribution of the whole movie
   var sozai = document.querySelector('.sozaiArea');
 
-  //3. movie special notes text
-  var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
-  var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
-
   //4. pink submit button of the whole movie info, located upperside
   var upperSubmitButton = document.querySelector('.upperSubmitButton');
 
-  //. movie title
+  // movie title
   var movieDescriptionText = '';
   var movieDescription = document.querySelector('.movieDescription');
 
@@ -68,17 +64,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // variables for expireDate, default value is "none"
   var expireDate = '';
 
+
+
+  //upper radio buttons to ask whether the movie can be posted on the internet 
   upperRadioButtonsInternetAccess();
 
+  //special notes on the upperside
   specialNotes();
 
-  checkSpecialNotes.addEventListener('click', function () {
-    if (checkSpecialNotes.checked) {
-      checkSpecialNotesContainer.style.display = "block";
-    } else {
-      checkSpecialNotesContainer.style.display = "none";
-    }
-  });
+
 
   // var upperSubmitButton = document.querySelector('.upperSubmitButton');
   upperSubmitButton.addEventListener('click', function () {
