@@ -1,6 +1,8 @@
-import internetStreaming, { internetAccess } from "./internetAvailability.js";
+// import internetStreaming, { internetAccess } from "./internetAvailability.js";
 
-import specialNotes, { movieSpecialNotes } from "./specialNotes.js";
+// import specialNotes, { movieSpecialNotes } from "./specialNotes.js";
+
+import submitButton1 from "./upperSubmitButton.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -10,9 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //1. input prompt text
   var inputPromptText = document.querySelector('#inputPromptText');
-
-  //2. internet distribution of the whole movie
-  var sozai = document.querySelector('.sozaiArea');
 
   //4. pink submit button of the whole movie info, located upperside
   var upperSubmitButton = document.querySelector('.upperSubmitButton');
@@ -65,20 +64,20 @@ document.addEventListener('DOMContentLoaded', function () {
   var expireDate = '';
 
   //upper radio buttons to ask whether the movie can be posted on the internet 
-  internetStreaming();
+  // internetStreaming();
 
   //special notes on the upperside
-  specialNotes();
+  // specialNotes();
 
+  submitButton1();
 
-
-  // var upperSubmitButton = document.querySelector('.upperSubmitButton');
-  upperSubmitButton.addEventListener('click', function () {
-    sozai.innerHTML = `
-      <p style="margin:0;">${internetAccess}</p>
-      <p style="margin:0;">${movieSpecialNotes}</p>
-     `;
-  });
+  // // var upperSubmitButton = document.querySelector('.upperSubmitButton');
+  // upperSubmitButton.addEventListener('click', function () {
+  //   sozai.innerHTML = `
+  //     <p style="margin:0;">${internetAccess}</p>
+  //     <p style="margin:0;">${movieSpecialNotes}</p>
+  //    `;
+  // });
 
   //assign movie title text to variable
   movieDescription.addEventListener('change', function () {

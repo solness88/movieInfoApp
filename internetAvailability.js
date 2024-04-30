@@ -1,13 +1,13 @@
-// //radio button asking whether internet distribution availability for whole edited movie
+//radio button asking whether internet distribution availability for whole edited movie
 
 var internetAccess = '';
 
 function internetStreaming() {
 
-  var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="internetStreaming"]');
+  var internetAvailability = document.querySelectorAll('input[type="radio"][name="internetStreaming"]');
 
-  upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
-    upperRadioButtonInternet.addEventListener('change', function () {
+  internetAvailability.forEach(function (e) {
+    e.addEventListener('change', function () {
       internetAccess = this.value;
     });
   });
