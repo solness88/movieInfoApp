@@ -1,8 +1,5 @@
-// import internetStreaming, { internetAccess } from "./internetAvailability.js";
-
-// import specialNotes, { movieSpecialNotes } from "./specialNotes.js";
-
 import submitButton1 from "./upperSubmitButton.js";
+import setMovieTitle, { movieDescriptionText } from "./movieTitle.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -10,15 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
   //declare variables
   ////////////////////
 
-  //1. input prompt text
-  var inputPromptText = document.querySelector('#inputPromptText');
-
   //4. pink submit button of the whole movie info, located upperside
   var upperSubmitButton = document.querySelector('.upperSubmitButton');
-
-  // movie title
-  var movieDescriptionText = '';
-  var movieDescription = document.querySelector('.movieDescription');
 
   //5. register date, formatted date
   var registerDateInput = document.querySelector('.registerDate');
@@ -63,30 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // variables for expireDate, default value is "none"
   var expireDate = '';
 
-  //upper radio buttons to ask whether the movie can be posted on the internet 
-  // internetStreaming();
-
-  //special notes on the upperside
-  // specialNotes();
-
   submitButton1();
 
-  // // var upperSubmitButton = document.querySelector('.upperSubmitButton');
-  // upperSubmitButton.addEventListener('click', function () {
-  //   sozai.innerHTML = `
-  //     <p style="margin:0;">${internetAccess}</p>
-  //     <p style="margin:0;">${movieSpecialNotes}</p>
-  //    `;
-  // });
-
-  //assign movie title text to variable
-  movieDescription.addEventListener('change', function () {
-    movieDescriptionText = this.value;
-
-    // hide inputPromptText when the text is entered
-    inputPromptText.style.display = 'none'; // 非表示
-
-  });
+  setMovieTitle();
 
   submissionDestination.addEventListener('change', function () {
     submissionDestinationValue = this.value;
@@ -106,8 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //////////////////////////
   //create register number//
   //////////////////////////
-  // var movieNumber = '';
-  // var movieNum = document.querySelector('.movieNum')
   movieNum.addEventListener('change', function () {
     movieNumber = this.value;
   });
@@ -321,14 +288,6 @@ document.addEventListener('DOMContentLoaded', function () {
       internetAvailability = this.value;
     });
   });
-
-
-
-
-
-
-
-
 
   ///////////////////////////////////////////////////////////////
   //Special notes for each movie//
