@@ -1,5 +1,6 @@
 import submitButton1 from "./upperSubmitButton.js";
 import setMovieTitle, { movieDescriptionText } from "./movieTitle.js";
+import registerLocation, { submissionDestinationValue } from "./registerDestination.js"
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -13,10 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //5. register date, formatted date
   var registerDateInput = document.querySelector('.registerDate');
   var formattedDate = '';
-
-  //6. submission destination
-  var submissionDestinationValue = '国際';
-  var submissionDestination = document.querySelector('.submissionDestination');
 
   //movie number variables
   var movieNumber = '';
@@ -56,10 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
   submitButton1();
 
   setMovieTitle();
-
-  submissionDestination.addEventListener('change', function () {
-    submissionDestinationValue = this.value;
-  });
+  registerLocation();
 
   //movie register date
 
