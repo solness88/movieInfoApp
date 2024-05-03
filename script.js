@@ -1,19 +1,13 @@
 import submitButton1 from "./upperSubmitButton.js";
 import setMovieTitle, { movieDescriptionText } from "./movieTitle.js";
 import registerLocation, { submissionDestinationValue } from "./registerDestination.js"
+import registerDay, { formattedDate } from "./registerDate.js"
 
 document.addEventListener('DOMContentLoaded', function () {
 
   ////////////////////
   //declare variables
   ////////////////////
-
-  //4. pink submit button of the whole movie info, located upperside
-  var upperSubmitButton = document.querySelector('.upperSubmitButton');
-
-  //5. register date, formatted date
-  var registerDateInput = document.querySelector('.registerDate');
-  var formattedDate = '';
 
   //movie number variables
   var movieNumber = '';
@@ -54,17 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setMovieTitle();
   registerLocation();
-
-  //movie register date
-
-  registerDateInput.addEventListener('change', function () {
-    var registerDate = registerDateInput.value;
-    var parts = registerDate.split("-");
-    var year = parts[0];
-    var month = parts[1];
-    var day = parts[2];
-    formattedDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
-  });
+  registerDay();
 
   //////////////////////////
   //create register number//
@@ -103,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
   /////////////////////////////////////////////////////////////////
   //display 3rd party's alternatives when "3rd party" is selected//
   /////////////////////////////////////////////////////////////////
-
 
   var arrivalDateContainer = document.querySelector(".arrivalDateContainer");
 
@@ -192,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var arrivalDateToProcess = '';
 
-    //
     if (document.querySelector('.arrivalDate').value) {
       arrivalDateToProcess = new Date(document.querySelector('.arrivalDate').value);
 
@@ -310,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //Clear input field//
   /////////////////////
 
-  // 
   var eachSozaiArea = document.querySelector('.eachSozai1');
   var arrivalDate = document.querySelector('.arrivalDate');
 
