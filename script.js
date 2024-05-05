@@ -71,10 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
     submissionNumValue = '';
   });
 
-  /////////////////////////////////////////////////////////////////
-  //display 3rd party's alternatives when "3rd party" is selected//
-  /////////////////////////////////////////////////////////////////
-
   var arrivalDateContainer = document.querySelector(".arrivalDateContainer");
 
   function handleCopyRightInput() {
