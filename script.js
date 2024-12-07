@@ -1,11 +1,40 @@
-import submitButton1 from "./upperSubmitButton.js";
-import setMovieTitle, { movieDescriptionText } from "./movieTitle.js";
-import registerLocation, { submissionDestinationValue } from "./registerDestination.js"
-import registerDay, { formattedDate } from "./registerDate.js"
-import movieNum, { movieNumber } from "./movieNum.js"
-import registerNumber, { submissionNumValue } from "./registerNum.js"
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  ////////////////////
+  //declare variables
+  ////////////////////
+
+  //1. input prompt text
+  var inputPromptText = document.querySelector('#inputPromptText');
+
+  //2. internet distribution of the whole movie
+  var sozai = document.querySelector('.sozaiArea');
+
+  //3. movie special notes text
+  var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
+  var movieSpecialNotes = '';
+  var specialNotes = document.querySelector('.specialNotes');
+  var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+
+  //4. pink submit button of the whole movie info, located upperside
+  var upperSubmitButton = document.querySelector('.upperSubmitButton');
+
+  //. movie title
+  var movieDescriptionText = '';
+  var movieDescription = document.querySelector('.movieDescription');
+
+  //5. register date, formatted date
+  var registerDateInput = document.querySelector('.registerDate');
+  var formattedDate = '';
+
+  //6. submission destination
+  var submissionDestinationValue = '国際';
+  var submissionDestination = document.querySelector('.submissionDestination');
+
+  //movie number variables
+  var movieNumber = '';
+  var movieNum = document.querySelector('.movieNum');
 
   //7. submit button
   var submitButton = document.querySelector('.submitButton');
@@ -38,13 +67,106 @@ document.addEventListener('DOMContentLoaded', function () {
   // variables for expireDate, default value is "none"
   var expireDate = '';
 
-  submitButton1();
+  var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
+  var internetAccess = '';
 
-  setMovieTitle();
-  registerLocation();
-  registerDay();
-  movieNum();
-  registerNumber();
+
+
+  // //radio button asking whether internet distribution availability for whole edited movie
+  upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
+    upperRadioButtonInternet.addEventListener('change', function () {
+      internetAccess = this.value;
+    });
+  });
+
+
+  specialNotes.addEventListener('change', function () {
+    movieSpecialNotes = this.value;
+  });
+
+  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+
+  checkSpecialNotes.addEventListener('click', function () {
+    if (checkSpecialNotes.checked) {
+      checkSpecialNotesContainer.style.display = "block";
+    } else {
+      checkSpecialNotesContainer.style.display = "none";
+    }
+  });
+
+  // var upperSubmitButton = document.querySelector('.upperSubmitButton');
+  upperSubmitButton.addEventListener('click', function () {
+    sozai.innerHTML = `
+      <p style="margin:0;">${internetAccess}</p>
+      <p style="margin:0;">${movieSpecialNotes}</p>
+     `;
+  });
+
+  //assign movie title text to variable
+  movieDescription.addEventListener('change', function () {
+    movieDescriptionText = this.value;
+
+    // hide inputPromptText when the text is entered
+    inputPromptText.style.display = 'none'; // 非表示
+
+  });
+
+  submissionDestination.addEventListener('change', function () {
+    submissionDestinationValue = this.value;
+  });
+
+  //movie register date
+
+
+  registerDateInput.addEventListener('change', function () {
+    var registerDate = registerDateInput.value;
+    var parts = registerDate.split("-");
+    var year = parts[0];
+    var month = parts[1];
+    var day = parts[2];
+    formattedDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+  });
+
+  //////////////////////////
+  //create register number//
+  //////////////////////////
+  // var movieNumber = '';
+  // var movieNum = document.querySelector('.movieNum')
+  movieNum.addEventListener('change', function () {
+    movieNumber = this.value;
+  });
+
+  var submissionNumValue = '';
+  var inputElement = document.querySelector('#submissionNumInput');
+  var selectElement = document.querySelector('#submissionNum');
+  for (var i = 1; i <= 300; i++) {
+    var optionElement = document.createElement('option');
+    optionElement.value = i.toString();
+    optionElement.textContent = i.toString();
+    selectElement.appendChild(optionElement);
+  }
+
+  inputElement.addEventListener('input', function () {
+
+    // get the selected number and assign it to submissionNumValue
+    submissionNumValue = this.value;
+  });
+
+  // 
+  inputElement.addEventListener('click', function () {
+    inputElement.value = '';
+    submissionNumValue = '';
+  });
+
+  inputElement.addEventListener('mousedown', function () {
+    inputElement.value = '';
+    submissionNumValue = '';
+  });
+
+  /////////////////////////////////////////////////////////////////
+  //display 3rd party's alternatives when "3rd party" is selected//
+  /////////////////////////////////////////////////////////////////
+
 
   var arrivalDateContainer = document.querySelector(".arrivalDateContainer");
 
@@ -129,10 +251,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // add event listener when the button is clicked
   function manipulateArrivalDate() {
-    // copyRight = handleCopyRightInput();
+    copyRight = handleCopyRightInput();
 
     var arrivalDateToProcess = '';
 
+    //
     if (document.querySelector('.arrivalDate').value) {
       arrivalDateToProcess = new Date(document.querySelector('.arrivalDate').value);
 
@@ -223,6 +346,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+
+
+
+
+
+
+
+
   ///////////////////////////////////////////////////////////////
   //Special notes for each movie//
   ///////////////////////////////////////////////////////////////
@@ -250,6 +381,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //Clear input field//
   /////////////////////
 
+  // 
   var eachSozaiArea = document.querySelector('.eachSozai1');
   var arrivalDate = document.querySelector('.arrivalDate');
 
