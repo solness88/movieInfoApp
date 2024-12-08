@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var copyRight = '';
   var copyRightInput = document.querySelector("#copyrightInput");
 
+  //usagePerioinCopyRight
+  var usagePeriod = '';
+
   //third party valuables
   var thirdPartyValue = '';
   var thirdParty = document.querySelector(".thirdPartySelection");
@@ -88,12 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-
-
-
-
-
   //expiration date
   expirationDateInput.addEventListener('change', function () {
     var expirationDate = expirationDateInput.value;
@@ -103,15 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var expireDay = expireParts[2];
     expireDateFormatted = expireYear + "年" + parseInt(expireMonth, 10) + "月" + parseInt(expireDay, 10) + "日";
   });
-
-
-
-
-
-
-
-
-
 
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
@@ -128,10 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // var upperSubmitButton = document.querySelector('.upperSubmitButton');
   upperSubmitButton.addEventListener('click', function () {
     sozai.innerHTML = `
-      
-
-
-
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
       <span style="display:block;margin:0;">${internetAccess}</span>
 
@@ -247,10 +231,36 @@ document.addEventListener('DOMContentLoaded', function () {
       return copyRight;
     }
     manipulateArrivalDate();
+
+
   }
 
   copyRightInput.addEventListener("input", handleCopyRightInput);
   copyRightInput.addEventListener("change", manipulateArrivalDate);
+
+//   copyRightInput.addEventListener('change', function() {
+//     const selectedValue = this.value;
+//     document.getElementById('usePeriodNotice').textContent = selectedValue;
+// });
+
+function useagePeriodNotice(){
+  if (this.value == "RTV"){
+    usagePeriod = "RTV:配信から20日"
+  }else if(this.value == "AP"){
+    usagePeriod = "AP:配信から30日"
+  }else if(this.value == "RTV第三者素材"){
+    usagePeriod = "RTV第三者:配信から10日"
+  }else if(this.value == "AP第三者素材"){
+    usagePeriod = "AP第三者:配信から10日"
+  }else{
+    usagePeriod = ""
+  }
+  const selectedValue = this.value;
+  document.getElementById('usePeriodNotice').textContent = usagePeriod;
+}
+
+copyRightInput.addEventListener("input", useagePeriodNotice);
+copyRightInput.addEventListener("change", useagePeriodNotice);
 
   thirdPartyInput.addEventListener('input', function () {
     thirdPartyValue = this.value;
@@ -525,14 +535,14 @@ document.addEventListener('DOMContentLoaded', function () {
       ${movieNumber ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</span>` : ''}
 
           <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</span>
-          ${thirdPartyValue ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</p>` : ''}
+          ${thirdPartyValue ? `<span style="margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</span>` : ''}
 
-          <span style="display:block">
+          <span style="display:block;">
           ${credit ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</span>` : ''}
 
           ${creditText ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">「${creditText}」</span>` : ''}
           </span>
-          
+
       ${arrivalDateValue ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</span>` : ''}
 
       ${expireDate ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">使用期限:${expireDate}</span>` : ''}
