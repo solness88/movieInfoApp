@@ -70,8 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
   var internetAccess = '';
 
-
-
   // //radio button asking whether internet distribution availability for whole edited movie
   upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
     upperRadioButtonInternet.addEventListener('change', function () {
@@ -79,12 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
   });
-
-  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
   checkSpecialNotes.addEventListener('click', function () {
     if (checkSpecialNotes.checked) {
@@ -116,8 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   //movie register date
-
-
   registerDateInput.addEventListener('change', function () {
     var registerDate = registerDateInput.value;
     var parts = registerDate.split("-");
