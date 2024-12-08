@@ -36,7 +36,7 @@
 
                     <!-- expiration date -->
                     <div style=" display:flex; align-items: center; margin:10px 0 10px 0;">
-                        <label for="date" style="font-family: sans-serif;margin:0 0 0 20px;">使用期限</label>
+                        <label for="date" style="font-family: sans-serif;">使用期限</label>
                         <input type="date" class="expirationDate" style="height:1.5em; width: 150px;"></input>
                     </div>
 
@@ -72,7 +72,7 @@
         </div>
 
         <!-- Used image info -->
-        <div>
+        <div style="margin:20px 0 0 0">
             <form>
                 <fieldset>
                     <legend style="font-family: sans-serif;">個別の使用素材</legend>
@@ -91,7 +91,7 @@
                         <input type="date" class="registerDate" style="height:1.5em; width: 150px;"></input>
                         <p id="inputPromptText"
                             style="display:inline; font-family: sans-serif;color:blue; margin:0 0 0 20px;">
-                            版権・第三者素材は直接入力も可能！</p>
+                            版権・第三者素材は直接入力も可能です！</p>
                     </div>
 
                     <!-- select movie genre -->
@@ -170,11 +170,11 @@
                     <div>
                         <input type="radio" id="noCredit" name="askCourtesy" value="" style="margin:0 0 20px 0;"
                             checked />
-                        <label for="noCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">クレジット不要</label>
+                        <label for="noCredit" style="margin:0 0 20px 0; font-family: sans-serif;">クレジット不要</label>
 
                         <input type="radio" id="mustCredit" name="askCourtesy" value="※要クレジット"
                             style="margin:0 0 20px 10px;" />
-                        <label for="mustCourtesy" style="margin:0 0 20px 0; font-family: sans-serif;">要クレジット</label>
+                        <label for="mustCredit" style="margin:0 0 20px 0; font-family: sans-serif;">要クレジット</label>
                     </div>
 
                     <!-- credit text -->
@@ -232,7 +232,7 @@
         </div>
     </section>
 
-    <!-- Display the movie info entered on the right side of the screen. This field is located on the left side -->
+    <!-- Display the movie info entered on the right side of the screen. This field is located on the right side -->
     <section style="display: flex;justify-content: right;margin:10px 0 0 0;">
         <div id="displayArea"
             style="width:40%; background-color:rgb(235, 207, 52, 0.5);padding:10px;min-height:500px;margin:0 50px 0 0;">
@@ -243,8 +243,9 @@
                 <div class="sozaiArea" style="font-family: sans-serif;"></div>
                 <div class="eachMovieInfo"></div>
             </div>
+        </div>
+
     </section>
-    </div>
 
     <script src="script.js"></script>
 

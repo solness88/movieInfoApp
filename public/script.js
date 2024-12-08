@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-      ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">編集動画の使用期限：${expireDateFormatted}</span>` : ''}
+      ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
 
 
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
@@ -140,13 +140,13 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   //assign movie title text to variable
-  movieDescription.addEventListener('change', function () {
-    movieDescriptionText = this.value;
+  // movieDescription.addEventListener('change', function () {
+  //   movieDescriptionText = this.value;
 
-    // hide inputPromptText when the text is entered
-    inputPromptText.style.display = 'none'; // 非表示
+  //   // hide inputPromptText when the text is entered
+  //   inputPromptText.style.display = 'none'; // 非表示
 
-  });
+  // });
 
   submissionDestination.addEventListener('change', function () {
     submissionDestinationValue = this.value;
@@ -501,6 +501,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // append new div element
     document.querySelector('#movieInfo').appendChild(newDiv);
 
+    newDiv.scrollIntoView({ behavior: 'smooth' });
+
     //set the new div element to the variable "eachSozaiArea" 
     eachSozaiArea = document.querySelector('.eachSozai' + counter);
 
@@ -539,6 +541,15 @@ document.addEventListener('DOMContentLoaded', function () {
       ${eachMovieCautionVariable ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">※${eachMovieCautionVariable}</span>` : ''}
       
   `;
+
+  eachSozaiArea.scrollIntoView({ 
+    behavior: 'smooth',
+    block: 'end'
+});
+
+
+
+
 
   });
 
