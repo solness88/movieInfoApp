@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // var upperSubmitButton = document.querySelector('.upperSubmitButton');
   upperSubmitButton.addEventListener('click', function () {
     sozai.innerHTML = `
-      <p style="margin:0;">${internetAccess}</p>
-      <p style="margin:0;">${movieSpecialNotes}</p>
+      <span style="display:block;margin:0;">${internetAccess}</span>
+      <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
   });
 
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // get element with "eachSozai+ counter" class
     var eachSozaiElement = document.querySelector('.eachSozai' + (counter - 1));
 
-    var paragraphs = eachSozaiElement.querySelectorAll('p');
+    var paragraphs = eachSozaiElement.querySelectorAll('span');
 
     // change the color of existing text to red
     paragraphs.forEach(function (paragraph) {
@@ -478,33 +478,30 @@ document.addEventListener('DOMContentLoaded', function () {
   submitButton.addEventListener('click', function () {
     eachSozaiArea.innerHTML = `
       <br>
-      <p style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >◾️${movieDescriptionText}</p>
-      <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</p>
+      <span style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >■${movieDescriptionText}</span>
+      <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestinationValue}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionNumValue}</span>
 
-      <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestinationValue}</p>
-      <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionNumValue}</p>
+      ${movieNumber ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</span>` : ''}
 
-      ${movieNumber ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</p>` : ''}
-
-      <div>
+      <span style="display:block;">
           <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</p>
           ${thirdPartyValue ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</p>` : ''}
-      </div>
+      </span>
 
-      <div>
-          ${credit ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</p>` : ''}
+      <span style="display:block;">
+          ${credit ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</span>` : ''}
 
-          ${creditText ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">(${creditText})</p>` : ''}
-      </div>
+          ${creditText ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">「${creditText}」</span>` : ''}
+      </span>
 
-      ${arrivalDateValue ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</p>` : ''}
+      ${arrivalDateValue ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</span>` : ''}
 
-      ${expireDate ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">使用期限:${expireDate}</p>` : ''}
+      ${expireDate ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">使用期限:${expireDate}</span>` : ''}
 
 
-      ${internetAvailability ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${internetAvailability}</p>` : ''}
+      ${internetAvailability ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">※${internetAvailability}</span>` : ''}
 
-      ${eachMovieCautionVariable ? `<p style="margin:0;font-family: sans-serif; font-size:1em;">${eachMovieCautionVariable}</p>` : ''}
+      ${eachMovieCautionVariable ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">※${eachMovieCautionVariable}</span>` : ''}
       
   `;
 
