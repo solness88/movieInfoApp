@@ -11,6 +11,17 @@ document.addEventListener('DOMContentLoaded', function () {
   //2. internet distribution of the whole movie
   var sozai = document.querySelector('.sozaiArea');
 
+
+
+  var expirationDateInput = document.querySelector('.expirationDate');
+  var expireDateFormatted = '';
+
+
+
+
+
+
+
   //3. movie special notes text
   var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
   var movieSpecialNotes = '';
@@ -77,6 +88,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+
+
+
+
+
+
+  //expiration date
+  expirationDateInput.addEventListener('change', function () {
+    var expirationDate = expirationDateInput.value;
+    var expireParts = expirationDate.split("-");
+    var expireYear = expireParts[0];
+    var expireMonth = expireParts[1];
+    var expireDay = expireParts[2];
+    expireDateFormatted = expireYear + "年" + parseInt(expireMonth, 10) + "月" + parseInt(expireDay, 10) + "日";
+  });
+
+
+
+
+
+
+
+
+
+
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
   });
@@ -93,6 +129,12 @@ document.addEventListener('DOMContentLoaded', function () {
   upperSubmitButton.addEventListener('click', function () {
     sozai.innerHTML = `
       <span style="display:block;margin:0;">${internetAccess}</span>
+
+
+
+      ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">編集動画の使用期限：${expireDateFormatted}</span>` : ''}
+
+
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
   });
