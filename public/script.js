@@ -111,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
       checkSpecialNotesContainer.style.display = "block";
     } else {
       checkSpecialNotesContainer.style.display = "none";
+      movieSpecialNotes = '';
+      specialNotes.value = '';
     }
   });
 
@@ -425,6 +427,8 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
       eachMovieCautionContainer.style.display = "block";
     } else {
       eachMovieCautionContainer.style.display = "none";
+      eachMovieCautionVariable = '';
+      eachMovieCaution.value = '';
     }
   });
 
