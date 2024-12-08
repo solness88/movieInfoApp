@@ -20,25 +20,34 @@
             <form>
                 <fieldset>
                     <legend style=" font-family: sans-serif;">編集素材全体のインターネット配信・特記事項</legend>
+
+
+
+                    <!-- expiration date -->
+                    <div style=" display:flex; align-items: center; margin:10px 0 10px 3px;">
+                        <label for="date" style="font-family: sans-serif;">使用期限</label>
+                        <input type="date" class="expirationDate" style="height:1.5em; width: 150px;"></input>
+                    </div>
+
+
+
+
+
                     <div>
-                        <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet" value="※全編インターネットＯＫ" />
+                        <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet" value="全編インターネットＯＫ" />
                         <label for="internetAllOK" style="font-family: sans-serif;">全編インターネットＯＫ</label>
 
                         <input type="radio" id="partlyInternetNG" name="upperRadioButtonsInternet"
-                            value="※一部インターネットＮＧ" />
+                            value="一部インターネットＮＧ" />
                         <label for="partlyInternetNG" style="font-family: sans-serif;">一部インターネットＮＧ</label>
 
-                        <input type="radio" id="internetAllNG" name="upperRadioButtonsInternet" value="※全編インターネットＮＧ" />
+                        <input type="radio" id="internetAllNG" name="upperRadioButtonsInternet" value="全編インターネットＮＧ" />
                         <label for="internetAllNG" style="font-family: sans-serif;">全編インターネットＮＧ</label>
                     </div>
 
 
 
-                    <!-- expiration date -->
-                    <div style=" display:flex; align-items: center; margin:10px 0 10px 0;">
-                        <label for="date" style="font-family: sans-serif;">使用期限</label>
-                        <input type="date" class="expirationDate" style="height:1.5em; width: 150px;"></input>
-                    </div>
+
 
 
 
@@ -52,7 +61,7 @@
 
                     <!-- checkbox asking for any special notes -->
                     <div>
-                        <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:10px 0 0 5px;" />
+                        <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:13px 0 0 5px;" />
                         <label for="checkSpecialNotes" style="font-family: sans-serif;">特記事項を入力する</label>
                     </div>
 

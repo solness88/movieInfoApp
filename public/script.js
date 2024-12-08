@@ -128,25 +128,25 @@ document.addEventListener('DOMContentLoaded', function () {
   // var upperSubmitButton = document.querySelector('.upperSubmitButton');
   upperSubmitButton.addEventListener('click', function () {
     sozai.innerHTML = `
-      <span style="display:block;margin:0;">${internetAccess}</span>
+      
 
 
 
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
-
+      <span style="display:block;margin:0;">${internetAccess}</span>
 
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
   });
 
   //assign movie title text to variable
-  // movieDescription.addEventListener('change', function () {
-  //   movieDescriptionText = this.value;
+  movieDescription.addEventListener('change', function () {
+    movieDescriptionText = this.value;
 
-  //   // hide inputPromptText when the text is entered
-  //   inputPromptText.style.display = 'none'; // 非表示
+    // hide inputPromptText when the text is entered
+    // inputPromptText.style.display = 'none'; // 非表示
 
-  // });
+  });
 
   submissionDestination.addEventListener('change', function () {
     submissionDestinationValue = this.value;
@@ -516,6 +516,10 @@ document.addEventListener('DOMContentLoaded', function () {
     eachSozaiArea.innerHTML = `
       <br>
       <span style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >■${movieDescriptionText}</span>
+
+
+
+
       <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestinationValue}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionNumValue}</span>
 
       ${movieNumber ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</span>` : ''}
