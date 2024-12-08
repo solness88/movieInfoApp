@@ -117,20 +117,20 @@
 
                         <textarea type="text" class="movieDescription" name="name" size="50"
                             style="width:20em; height:1.5em; font-size:1.2em;"></textarea>
-                        <p id="usePeriodNotice" style="margin:0 0 0 5px; font-family: sans-serif;"></p>
+                        <!-- <p id="usePeriodNotice" style="margin:0 0 0 5px; font-family: sans-serif;"></p> -->
                     </div>
 
                     <!-- movie arrival date -->
                     <div style=" display:flex; align-items: center; margin: 0 0 20px 0">
                         <label for="date" style="font-family: sans-serif;">入稿日</label>
                         <input type="date" class="registerDate" style="height:1.5em; width: 150px;"></input>
-                        <p id="inputPromptText"
+                        <!-- <p id="inputPromptText"
                             style="display:inline; font-family: sans-serif;color:blue; margin:0 0 0 20px;font-size:12px;">
-                            版権・第三者素材は直接入力も可能</p>
+                            版権・第三者素材は直接入力も可能</p> -->
                     </div>
 
                     <!-- select movie genre -->
-                    <div style=" display: flex; align-items: center;margin: 0 0 20px 0">
+                    <div style=" display: flex; align-items: center;margin: 0 0 10px 0">
                         <div style="margin:0 10px 0 0;">
                             <label style="margin: 0 5px 0 0; font-family: sans-serif;">入稿先</label>
                             <select class="submissionDestination" name="choice" style="width:5em;height:2.1em;">
@@ -143,7 +143,7 @@
                         </div>
 
                         <!-- select register number create 300 using JavaScript for loop -->
-                        <div style="margin:0 30px 0 0;">
+                        <div style="margin:0 30px 0 20px;">
                             <label for=" submissionNumInput" style="font-family: sans-serif;">入稿番号</label>
                             <input list="submissionNum" id="submissionNumInput" name="submissionNumInput"
                                 style="width:5em; font-size:1em;" />
@@ -157,6 +157,10 @@
                         </div>
 
                     </div>
+                    <p id="inputPromptText"
+                    style="display:inline; font-family: sans-serif;color:blue; margin:0;font-size:12px;">
+                    版権・第三者素材は直接入力も可能</p>
+                    <p id="usePeriodNotice" style="display:inline;margin:0 0 0 5px; font-family: sans-serif;font-size:12px;"></p>
 
                     <!-- copyright -->
                     <div style="display: flex; margin: 0 0 20px 0">
@@ -260,7 +264,6 @@
                             style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button>
                         <button type="button" class="confirmClearButton"
                             style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・追加の素材入力へ</button>
-
                     </div>
                 </fieldset>
             </form>

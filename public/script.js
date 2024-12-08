@@ -260,7 +260,7 @@ function useagePeriodNotice(){
   }else{
     usagePeriod = ""
   }
-  const selectedValue = this.value;
+  // const selectedValue = this.value;
   // document.getElementById('usePeriodNotice').textContent = usagePeriod;
   usagePeriodNotice.textContent = usagePeriod;
 }
@@ -443,6 +443,10 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
     movieDescriptionText = '';
     movieDescription.value = '';
 
+    //clear usage period text
+    usagePeriod = '';
+    usagePeriodNotice.textContent = '';
+
     //clear submission date
     formattedDate = '';
     registerDateInput.value = '';
@@ -535,25 +539,25 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
 
 
 
-
-      <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestinationValue}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionNumValue}</span>
-
+      <div>
+        <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${formattedDate}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionDestinationValue}</span><span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${submissionNumValue}</span>
+      </div>
       ${movieNumber ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</span>` : ''}
 
           <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</span>
           ${thirdPartyValue ? `<span style="margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</span>` : ''}
+
+
+
+      ${arrivalDateValue ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</span>` : ''}
+
+      ${expireDate ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">使用期限:${expireDate}</span>` : ''}
 
           <span style="display:block;">
           ${credit ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</span>` : ''}
 
           ${creditText ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">「${creditText}」</span>` : ''}
           </span>
-
-      ${arrivalDateValue ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</span>` : ''}
-
-      ${expireDate ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">使用期限:${expireDate}</span>` : ''}
-
-
       ${internetAvailability ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">※${internetAvailability}</span>` : ''}
 
       ${eachMovieCautionVariable ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">※${eachMovieCautionVariable}</span>` : ''}
