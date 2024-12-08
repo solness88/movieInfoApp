@@ -524,17 +524,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
       ${movieNumber ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</span>` : ''}
 
-      <span style="display:block;">
-          <p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</p>
+          <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</span>
           ${thirdPartyValue ? `<p style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</p>` : ''}
-      </span>
 
-      <span style="display:block;">
+          <span style="display:block">
           ${credit ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</span>` : ''}
 
           ${creditText ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">「${creditText}」</span>` : ''}
-      </span>
-
+          </span>
+          
       ${arrivalDateValue ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</span>` : ''}
 
       ${expireDate ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">使用期限:${expireDate}</span>` : ''}
