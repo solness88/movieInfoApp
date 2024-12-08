@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //usagePerioinCopyRight
   var usagePeriod = '';
+  var usagePeriodNotice = document.getElementById('usePeriodNotice');
 
   //third party valuables
   var thirdPartyValue = '';
@@ -245,18 +246,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function useagePeriodNotice(){
   if (this.value == "RTV"){
-    usagePeriod = "RTV:配信から20日"
+    usagePeriod = "RTV:配信から20日";
+    usagePeriodNotice.style.color = 'darkblue';
   }else if(this.value == "AP"){
-    usagePeriod = "AP:配信から30日"
+    usagePeriod = "AP:配信から30日";
+    usagePeriodNotice.style.color = 'brown';
   }else if(this.value == "RTV第三者素材"){
-    usagePeriod = "RTV第三者:配信から10日"
+    usagePeriod = "RTV第三者:配信から10日";
+    usagePeriodNotice.style.color = 'DarkMagenta';
   }else if(this.value == "AP第三者素材"){
     usagePeriod = "AP第三者:配信から10日"
+    usagePeriodNotice.style.color = 'green';
   }else{
     usagePeriod = ""
   }
   const selectedValue = this.value;
-  document.getElementById('usePeriodNotice').textContent = usagePeriod;
+  // document.getElementById('usePeriodNotice').textContent = usagePeriod;
+  usagePeriodNotice.textContent = usagePeriod;
 }
 
 copyRightInput.addEventListener("input", useagePeriodNotice);
