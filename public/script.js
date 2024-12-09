@@ -326,11 +326,11 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
       }
 
       if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材") {
-        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 10);
+        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 9);
       } else if (copyRight == "RTV") {
-        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 20);
+        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 19);
       } else if (copyRight == "AP") {
-        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 30);
+        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 29);
       }
 
       // get input data of arrival date, assign to the variable
@@ -548,20 +548,13 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
       </div>
       ${movieNumber ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">素材番号:${movieNumber}</span>` : ''}
 
-          <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</span>
-          ${thirdPartyValue ? `<span style="margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</span>` : ''}
-
-
+      <span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${copyRight}</span>
+      ${thirdPartyValue ? `<span style="margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</span>` : ''}
 
       ${arrivalDateValue ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</span>` : ''}
+      <span style="display:inline;margin:0;font-family: sans-serif; font-size:1em;">${expireDate ? `使用期限:${expireDate}` : '使用期限なし'}</span>
 
-      ${expireDate ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">使用期限:${expireDate}</span>` : ''}
-
-          <span style="display:block;">
-          ${credit ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</span>` : ''}
-
-          ${creditText ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">「${creditText}」</span>` : ''}
-          </span>
+      <span style="display:block;">${credit ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</span>` : ''}${creditText ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">「${creditText}」</span>` : ''}</span>
       ${internetAvailability ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">※${internetAvailability}</span>` : ''}
 
       ${eachMovieCautionVariable ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">※${eachMovieCautionVariable}</span>` : ''}
