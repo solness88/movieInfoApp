@@ -30,13 +30,47 @@
             input[type="date"]:hover::after {
             opacity: 1; /* hover時に表示 */
         }
+
+        .upperSubmitButton, .submitButton {
+            padding: 5px 10px;
+            background-color: rgba(240, 93, 108, 0.5);
+            border: solid 1px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        /* マウスホバー時 */
+        .upperSubmitButton:hover, .submitButton:hover {
+            background-color: rgba(240, 93, 108, 0.4);  /* より濃い色に */
+            cursor: pointer;  /* カーソルをポインターに */
+        }
+
+        /* クリック時 */
+        .upperSubmitButton:active, .submitButton:active {
+            background-color: rgba(240, 93, 108, 0.5);  /* さらに濃い色に */
+        }
+
+        .confirmClearButton{
+            padding:10px; 
+            background-color:rgba(102, 112, 255, 0.5); 
+            border:solid 1px;
+            border-radius: 3px;
+        }
+
+        .confirmClearButton:hover{
+            background-color:rgba(102, 112, 255, 0.4); 
+        }
+
+        .confirmClearButton:active{
+            background-color:rgba(102, 112, 255, 0.5); 
+        }
     </style>
 </head>
 
 <body>
 
     <!-- input field: this field is fixed on the right side of the screen -->
-    <section style="width:45%;position:fixed;left:30px;top:10px;height: 95vh;overflow:auto;">
+    <section style="width:45%;position:fixed;left:30px;top:10px;height: 95vh;overflow:auto; font-size:15px;">
         <p style="color:rgb(245, 66, 158);font-size:12px;font-family: sans-serif;margin:0;">
             画面を初期状態に戻すにはリロードしてください。</p>
         </p>
@@ -71,19 +105,6 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <!-- checkbox asking for any special notes -->
                     <div>
                         <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:13px 0 0 5px;" />
@@ -97,10 +118,16 @@
                     </div>
 
 
-                    <div style="text-align: right;margin:0 50px 0 0;">
+                    <!-- <div style="text-align: right;margin:0 50px 0 0;">
                         <button type="button" class="upperSubmitButton"
-                            style="padding:5px 10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;display: inline;;">決定・上書き→→</button>
+                            style="padding:5px 10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;display: inline;transition: background-color 0.3s;">決定・上書き▶▶</button>
+                    </div> -->
+
+                    <div style="text-align: right;margin:0 50px 0 0;">
+                        <button type="button" class="upperSubmitButton">右に表示 or 変更を反映▶▶</button>
                     </div>
+
+
                 </fieldset>
             </form>
         </div>
@@ -143,30 +170,30 @@
                         </div>
 
                         <!-- select register number create 300 using JavaScript for loop -->
-                        <div style="margin:0 30px 0 20px;">
+                        <div style="margin:0 15px 0 15px;">
                             <label for=" submissionNumInput" style="font-family: sans-serif;">入稿番号</label>
                             <input list="submissionNum" id="submissionNumInput" name="submissionNumInput"
-                                style="width:5em; font-size:1em;" />
+                                style="width:5em; font-size:1em;height:1.5em" />
                             <datalist id="submissionNum" name="choice"></datalist>
                         </div>
 
                         <div style="display: flex;align-items: center;">
                             <label for="name" style="font-family: sans-serif;">素材番号</label>
                             <textarea type="text" class="movieNum" name="name" size="30"
-                                style="width:15em; height:1.5em; line-height:1.5em;font-size:1.2em;"></textarea>
+                                style="width:8em; height:1.3em; line-height:1.3em;font-size:1.2em;"></textarea>
                         </div>
 
                     </div>
                     <p id="inputPromptText"
                     style="display:inline; font-family: sans-serif;color:blue; margin:0;font-size:12px;">
                     版権・第三者素材は直接入力も可能</p>
-                    <p id="usePeriodNotice" style="display:inline;margin:0 0 0 5px; font-family: sans-serif;font-size:12px;"></p>
+                    <p id="usePeriodNotice" style="display:inline;margin:0 0 0 20px; font-family: sans-serif;font-size:12px;"></p>
 
                     <!-- copyright -->
                     <div style="display: flex; margin: 0 0 20px 0">
                         <div style="display:flex; margin:0 30px 0 0;">
                             <label for="copyrightInput" style="font-family: sans-serif;">版権</label>
-                            <input list="copyright" id="copyrightInput" name="copyrightInput">
+                            <input list="copyright" id="copyrightInput" name="copyrightInput" style="height:1.5em;">
                             <datalist id="copyright" name="choice" class="copyRight">
                                 <option value="NNN" id="NNN"></option>
                                 <option value="RTV" id="RTV"></option>
@@ -182,7 +209,7 @@
                         <!-- Input and choose of 3rd party's movie -->
                         <div style="display: none;" class="thirdPartySelection">
                             <label for="thirdPartyInput" style="font-family: sans-serif;">第三者素材を入力</label>
-                            <input list="thirdParty" id="thirdPartyInput" name="thirdPartyInput">
+                            <input list="thirdParty" id="thirdPartyInput" name="thirdPartyInput" style="height:1.5em;">
                             <datalist id="thirdParty" name="choice" class="thirdParty">
                                 <option selected value=''></option>
                                 <option value="NBC" class="thirdPartyAlt" style="font-family: sans-serif;">NBC
@@ -202,7 +229,7 @@
                     <!-- movie arrival date -->
                     <div style="display:none; margin: 0 0 20px 0;" class="arrivalDateContainer">
                         <label for="date" style="font-family: sans-serif;">配信日：</label>
-                        <input type="date" class="arrivalDate"></input>
+                        <input type="date" class="arrivalDate" style="height:2em;"></input>
                     </div>
 
                     <!-- radio buttons asking for whether each movie needs courtesy or not-->
@@ -260,11 +287,15 @@
 
 
                     <div style="display: flex; justify-content: space-evenly;">
+                        <!-- <button type="button" class="submitButton"
+                            style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button> -->
                         <button type="button" class="submitButton"
-                            style="padding:10px; background-color:rgba(240, 93, 108, 0.5); border:solid 1px;border-radius: 3px;">決定・上書き→→</button>
-                        <button type="button" class="confirmClearButton"
-                            style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・追加の素材入力へ</button>
-                    </div>
+                            style="padding:10px;">右に表示 or 変更を反映▶▶</button>
+                        <!-- <button type="button" class="confirmClearButton"
+                            style="padding:10px; background-color:rgba(102, 112, 255, 0.5); border:solid 1px;border-radius: 3px;">この素材完了・追加の素材入力へ</button> -->
+                        <button type="button" class="confirmClearButton">この素材完了・追加の素材入力へ</button>
+
+                        </div>
                 </fieldset>
             </form>
         </div>
