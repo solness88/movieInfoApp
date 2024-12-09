@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var expireDate = '';
 
   var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
-  var internetAccess = '';
+  var internetAccess = '全編インターネットＯＫ';
 
   // //radio button asking whether internet distribution availability for whole edited movie
   upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
