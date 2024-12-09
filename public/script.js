@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var expirationDateInput = document.querySelector('.expirationDate');
   var expireDateFormatted = '';
-
+  
+  var generalExpireDate = '';
+  var generalExpireDateNotice = document.getElementById('generalExpireDate');
 
 
 
@@ -67,6 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var counter = 1;
 
   var arrivalDateValue = '';
+  var arrivalDateToProcess = '';
+
+  var expirationDate = '';
 
   // create new div element
   var newDiv = document.createElement("div");
@@ -93,14 +98,30 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   //expiration date
-  expirationDateInput.addEventListener('change', function () {
-    var expirationDate = expirationDateInput.value;
-    var expireParts = expirationDate.split("-");
-    var expireYear = expireParts[0];
-    var expireMonth = expireParts[1];
-    var expireDay = expireParts[2];
-    expireDateFormatted = expireYear + "年" + parseInt(expireMonth, 10) + "月" + parseInt(expireDay, 10) + "日";
-  });
+  // expirationDateInput.addEventListener('change', function () {
+  //   var expirationDate = expirationDateInput.value;
+  //   var expireParts = expirationDate.split("-");
+  //   var expireYear = expireParts[0];
+  //   var expireMonth = expireParts[1];
+  //   var expireDay = expireParts[2];
+  //   expireDateFormatted = expireYear + "年" + parseInt(expireMonth, 10) + "月" + parseInt(expireDay, 10) + "日";
+  // });
+
+  function nearestExpireDate(){
+    if(expirationDate == '' || expirationDate > arrivalDateToProcess){
+      expirationDate = arrivalDateToProcess;
+
+      // get input data of arrival date, assign to the variable
+      var year = expirationDate.getFullYear();
+
+      //Add 1 because "month" starts with 0
+      var month = expirationDate.getMonth() + 1;
+      var day = expirationDate.getDate();
+      generalExpireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+      generalExpireDateNotice.textContent = `使用期限：${generalExpireDate}`;
+
+    }
+  };
 
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
@@ -121,6 +142,8 @@ document.addEventListener('DOMContentLoaded', function () {
     sozai.innerHTML = `
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
       <span style="display:block;margin:0;">${internetAccess}</span>
+
+      ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : ''}
 
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
@@ -306,7 +329,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   function manipulateArrivalDate() {
     copyRight = handleCopyRightInput();
 
-    var arrivalDateToProcess = '';
+    // var arrivalDateToProcess = '';
 
     //
     if (document.querySelector('.arrivalDate').value) {
@@ -350,6 +373,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   }
 
   arrivalDateContainer.addEventListener('change', manipulateArrivalDate);
+  // arrivalDateContainer.addEventListener('change', nearestExpireDate);
 
   ///////////////////////////////////////////////////////
   //Check whether "must courtesy" or not for each movie//
@@ -530,6 +554,10 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
     //set the new div element to the variable "eachSozaiArea" 
     eachSozaiArea = document.querySelector('.eachSozai' + counter);
 
+    nearestExpireDate();
+
+    upperSubmitButton.click();
+
   });
 
   //////////////////////////////////////////////////////////////////
@@ -560,7 +588,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
       ${eachMovieCautionVariable ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">※${eachMovieCautionVariable}</span>` : ''}
       
   `;
-
+  
   eachSozaiArea.scrollIntoView({ 
     behavior: 'smooth',
     block: 'end'

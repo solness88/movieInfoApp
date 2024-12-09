@@ -81,16 +81,11 @@
                 <fieldset>
                     <legend style=" font-family: sans-serif;font-size:20px;">編集素材全体の使用条件</legend>
 
-
-
                     <!-- expiration date -->
-                    <div style=" display:flex; align-items: center; margin:10px 0 10px 3px;">
+                    <!-- <div style=" display:flex; align-items: center; margin:10px 0 10px 3px;">
                         <label for="date" style="font-family: sans-serif;">使用期限</label>
                         <input type="date" class="expirationDate" style="height:1.5em; width: 150px;">
-                    </div>
-
-
-
+                    </div> -->
 
                     <div>
                         <input type="radio" id="internetAllOK" name="upperRadioButtonsInternet" value="全編インターネットＯＫ" checked/>
@@ -106,10 +101,11 @@
 
 
                     <!-- checkbox asking for any special notes -->
-                    <div>
+                    <div style="display:inline;">
                         <input type="checkbox" id="checkSpecialNotes" name="scales" style="margin:13px 0 0 5px;" />
                         <label for="checkSpecialNotes" style="font-family: sans-serif;">特記事項を入力する</label>
                     </div>
+                    <p style = "display: inline; font-family: sans-serif; color:rgb(255, 0, 204); font-size: medium;margin: 0 0 0 20px;font-size: 14px;" id="generalExpireDate"></p>
 
                     <!-- input field of special notes -->
                     <div style="display:none;" id="checkSpecialNotesContainer">
