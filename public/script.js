@@ -120,6 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
         generalExpireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
         generalExpireDateNotice.textContent = `使用期限：${generalExpireDate}`;
       }
+    }else{
+      generalExpireDateNotice.textContent = '';
+      generalExpireDate = '';
     }
   };
 
@@ -247,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
       arrivalDateContainer.value = '';
       arrivalDate.value = '';
       arrivalDateValue = '';
-
+      arrivalDateToProcess = '';
     }
 
     if (this.value == undefined) {
@@ -565,6 +568,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   //////////////////////////////////////////////////////////////////
 
   submitButton.addEventListener('click', function () {
+    nearestExpireDate();
     eachSozaiArea.innerHTML = `
       <br>
       <span style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >■${movieDescriptionText}</span>
