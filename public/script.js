@@ -108,18 +108,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // });
 
   function nearestExpireDate(){
-    if(expirationDate == '' || expirationDate > arrivalDateToProcess){
-      expirationDate = arrivalDateToProcess;
+    if(arrivalDateToProcess){
+      if(expirationDate == '' || expirationDate > arrivalDateToProcess){
+        expirationDate = arrivalDateToProcess;
+        // get input data of arrival date, assign to the variable
+        var year = expirationDate.getFullYear();
 
-      // get input data of arrival date, assign to the variable
-      var year = expirationDate.getFullYear();
-
-      //Add 1 because "month" starts with 0
-      var month = expirationDate.getMonth() + 1;
-      var day = expirationDate.getDate();
-      generalExpireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
-      generalExpireDateNotice.textContent = `使用期限：${generalExpireDate}`;
-
+        //Add 1 because "month" starts with 0
+        var month = expirationDate.getMonth() + 1;
+        var day = expirationDate.getDate();
+        generalExpireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+        generalExpireDateNotice.textContent = `使用期限：${generalExpireDate}`;
+      }
     }
   };
 
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
       <span style="display:block;margin:0;">${internetAccess}</span>
 
-      ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : ''}
+      ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : '使用期限なし'}
 
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
@@ -580,7 +580,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
       ${thirdPartyValue ? `<span style="margin:0;font-family: sans-serif; font-size:1em;">(${thirdPartyValue})</span>` : ''}
 
       ${arrivalDateValue ? `<span style="display:block;margin:0;font-family: sans-serif; font-size:1em;">配信日:${arrivalDateValue}</span>` : ''}
-      <span style="display:inline;margin:0;font-family: sans-serif; font-size:1em;">${expireDate ? `使用期限:${expireDate}` : '使用期限なし'}</span>
+      <span style="display:inline;margin:0;font-family: sans-serif; font-size:1em;">${expireDate ? `使用期限:${expireDate}` : ''}</span>
 
       <span style="display:block;">${credit ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${credit}</span>` : ''}${creditText ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">「${creditText}」</span>` : ''}</span>
       ${internetAvailability ? `<span style="display:block; margin:0;font-family: sans-serif; font-size:1em;">※${internetAvailability}</span>` : ''}
