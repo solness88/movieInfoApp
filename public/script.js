@@ -108,9 +108,14 @@ document.addEventListener('DOMContentLoaded', function () {
   // });
 
   function nearestExpireDate(){
-    if(arrivalDateToProcess){
+    console.log("arrivalDateToProcess:" + arrivalDateToProcess)
+    console.log("expirationDate:"+expirationDate)
+    
+    // if(arrivalDateToProcess){
       if(expirationDate == '' || expirationDate > arrivalDateToProcess){
         expirationDate = arrivalDateToProcess;
+
+        if(expirationDate){
         // get input data of arrival date, assign to the variable
         var year = expirationDate.getFullYear();
 
@@ -118,12 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var month = expirationDate.getMonth() + 1;
         var day = expirationDate.getDate();
         generalExpireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
-        generalExpireDateNotice.textContent = `使用期限：${generalExpireDate}`;
+        }
       }
-    }else{
-      generalExpireDateNotice.textContent = '';
-      generalExpireDate = '';
-    }
+    // }else{
+    //   generalExpireDate = '';
+    // }
   };
 
   specialNotes.addEventListener('change', function () {
@@ -376,7 +380,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   }
 
   arrivalDateContainer.addEventListener('change', manipulateArrivalDate);
-  // arrivalDateContainer.addEventListener('change', nearestExpireDate);
+  // arrivalDateContainer.addEventListener('change', nearestExpireDate);arrivalDateToProcess
 
   ///////////////////////////////////////////////////////
   //Check whether "must courtesy" or not for each movie//
@@ -556,8 +560,8 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
 
     //set the new div element to the variable "eachSozaiArea" 
     eachSozaiArea = document.querySelector('.eachSozai' + counter);
-
     nearestExpireDate();
+
 
     upperSubmitButton.click();
 
@@ -568,7 +572,6 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   //////////////////////////////////////////////////////////////////
 
   submitButton.addEventListener('click', function () {
-    nearestExpireDate();
     eachSozaiArea.innerHTML = `
       <br>
       <span style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >■${movieDescriptionText}</span>
@@ -596,10 +599,18 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   eachSozaiArea.scrollIntoView({ 
     behavior: 'smooth',
     block: 'end'
-});
+  });
 
 
+//   //全体の素材情報を右側に送る
+//   sozai.innerHTML = `
+//   ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
+//   <span style="display:block;margin:0;">${internetAccess}</span>
 
+//   ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : '使用期限なし'}
+
+//   <span style="display:block;margin:0;">${movieSpecialNotes}</span>
+//  `;
 
 
   });
