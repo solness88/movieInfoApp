@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //2. internet distribution of the whole movie
   var sozai = document.querySelector('.sozaiArea');
+  var expireDateArea = document.querySelector('.expireDateArea');
 
 
 
@@ -107,8 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // });
 
   function nearestExpireDate(){
-    console.log("arrivalDateToProcess:" + arrivalDateToProcess)
-    console.log("expirationDate:"+expirationDate)
     
     // if(arrivalDateToProcess){
       if(expirationDate == '' || expirationDate > arrivalDateToProcess){
@@ -149,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function () {
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
       <span style="display:block;margin:0;">${internetAccess}</span>
 
-      ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : '使用期限なし'}
 
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
@@ -473,6 +471,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   var confirmClearButton = document.querySelector(".confirmClearButton");
   confirmClearButton.addEventListener('click', function () {
 
+
     //clear movie description text
     movieDescriptionText = '';
     movieDescription.value = '';
@@ -562,8 +561,9 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
     nearestExpireDate();
 
 
-    upperSubmitButton.click();
-
+    expireDateArea.innerHTML = `
+      ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : '使用期限なし'}
+    `
   });
 
   //////////////////////////////////////////////////////////////////
@@ -571,6 +571,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   //////////////////////////////////////////////////////////////////
 
   submitButton.addEventListener('click', function () {
+    
     eachSozaiArea.innerHTML = `
       <br>
       <span style="margin:0; display:block;font-family: sans-serif; font-size:1em;" >■${movieDescriptionText}</span>
