@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
 
   ////////////////////
@@ -254,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
       arrivalDateContainer.value = '';
       arrivalDate.value = '';
       arrivalDateValue = '';
-      arrivalDateToProcess = '';
+      //arrivalDateToProcess = '';
     }
 
     if (this.value == undefined) {
