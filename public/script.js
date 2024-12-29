@@ -275,16 +275,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function useagePeriodNotice(){
   if (this.value == "RTV"){
-    usagePeriod = "RTV:配信から20日";
+    usagePeriod = "RTV:配信から366日";
     usagePeriodNotice.style.color = 'darkblue';
   }else if(this.value == "AP"){
-    usagePeriod = "AP:配信から30日";
+    usagePeriod = "AP:配信から45日";
     usagePeriodNotice.style.color = 'brown';
   }else if(this.value == "RTV第三者素材"){
-    usagePeriod = "RTV第三者:配信から10日";
+    usagePeriod = "RTV第三者:配信から30日";
     usagePeriodNotice.style.color = 'DarkMagenta';
   }else if(this.value == "AP第三者素材"){
-    usagePeriod = "AP第三者:配信から10日"
+    usagePeriod = "AP第三者:配信から30日"
     usagePeriodNotice.style.color = 'green';
   }else{
     usagePeriod = ""
@@ -353,11 +353,11 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
       }
 
       if (copyRight == "RTV第三者素材" || copyRight == "AP第三者素材") {
-        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 9);
-      } else if (copyRight == "RTV") {
-        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 19);
-      } else if (copyRight == "AP") {
         arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 29);
+      } else if (copyRight == "RTV") {
+        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 364);
+      } else if (copyRight == "AP") {
+        arrivalDateToProcess.setDate(arrivalDateToProcess.getDate() + 44);
       }
 
       // get input data of arrival date, assign to the variable
