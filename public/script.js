@@ -1,4 +1,8 @@
+import { WholeMovieInfo } from './WholeMovieInfo.js';
+
 document.addEventListener('DOMContentLoaded', function () {
+
+  const wholeMovieInfo = new WholeMovieInfo();
 
   ////////////////////
   //declare variables
@@ -88,14 +92,14 @@ document.addEventListener('DOMContentLoaded', function () {
   var expireDate = '';
 
   var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
-  var internetAccess = '全編インターネットＯＫ';
+  // var internetAccess = '全編インターネットＯＫ';
 
   // //radio button asking whether internet distribution availability for whole edited movie
-  upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
-    upperRadioButtonInternet.addEventListener('change', function () {
-      internetAccess = this.value;
-    });
-  });
+  // upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
+  //   upperRadioButtonInternet.addEventListener('change', function () {
+  //     internetAccess = this.value;
+  //   });
+  // });
 
   //expiration date
   // expirationDateInput.addEventListener('change', function () {
@@ -146,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
   upperSubmitButton.addEventListener('click', function () {
     sozai.innerHTML = `
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
-      <span style="display:block;margin:0;">${internetAccess}</span>
+      <span style="display:block;margin:0;">${wholeMovieInfo.getInternetAccess()}</span>
 
 
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
