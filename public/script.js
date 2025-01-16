@@ -214,8 +214,6 @@ document.addEventListener('DOMContentLoaded', function () {
   /////////////////////////////////////////////////////////////////
   //display 3rd party's alternatives when "3rd party" is selected//
   /////////////////////////////////////////////////////////////////
-
-
   var arrivalDateContainer = document.querySelector(".arrivalDateContainer");
 
   function handleCopyRightInput() {
@@ -599,17 +597,6 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
     behavior: 'smooth',
     block: 'end'
   });
-
-
-//   //全体の素材情報を右側に送る
-//   sozai.innerHTML = `
-//   ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
-//   <span style="display:block;margin:0;">${internetAccess}</span>
-
-//   ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : '使用期限なし'}
-
-//   <span style="display:block;margin:0;">${movieSpecialNotes}</span>
-//  `;
 
 
   });
