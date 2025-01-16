@@ -179,8 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //////////////////////////
   //create register number//
   //////////////////////////
-  // var movieNumber = '';
-  // var movieNum = document.querySelector('.movieNum')
+
   movieNum.addEventListener('change', function () {
     movieNumber = this.value;
   });
