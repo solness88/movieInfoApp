@@ -1,12 +1,4 @@
-import { WholeMovieInfo } from './WholeMovieInfo.js';
-
 document.addEventListener('DOMContentLoaded', function () {
-
-  const wholeMovieInfo = new WholeMovieInfo();
-
-  ////////////////////
-  //declare variables
-  ////////////////////
 
   //1. input prompt text
   var inputPromptText = document.querySelector('#inputPromptText');
@@ -15,18 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var sozai = document.querySelector('.sozaiArea');
   var expireDateArea = document.querySelector('.expireDateArea');
 
-
-
   var expirationDateInput = document.querySelector('.expirationDate');
   var expireDateFormatted = '';
   
   var generalExpireDate = '';
   var generalExpireDateNotice = document.getElementById('generalExpireDate');
-
-
-
-
-
 
   //3. movie special notes text
   var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
@@ -90,16 +75,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // variables for expireDate, default value is "none"
   var expireDate = '';
-
   var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
-  // var internetAccess = '全編インターネットＯＫ';
+  var internetAccess = '全編インターネットＯＫ';
 
   // //radio button asking whether internet distribution availability for whole edited movie
-  // upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
-  //   upperRadioButtonInternet.addEventListener('change', function () {
-  //     internetAccess = this.value;
-  //   });
-  // });
+  upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
+    upperRadioButtonInternet.addEventListener('change', function () {
+      internetAccess = this.value;
+    });
+  });
 
   //expiration date
   // expirationDateInput.addEventListener('change', function () {
@@ -150,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
   upperSubmitButton.addEventListener('click', function () {
     sozai.innerHTML = `
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
-      <span style="display:block;margin:0;">${wholeMovieInfo.getInternetAccess()}</span>
+      <span style="display:block;margin:0;">${internetAccess}</span>
 
 
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
@@ -428,14 +412,6 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
     });
   });
 
-
-
-
-
-
-
-
-
   ///////////////////////////////////////////////////////////////
   //Special notes for each movie//
   ///////////////////////////////////////////////////////////////
@@ -448,8 +424,6 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   eachMovieCaution.addEventListener('change', function () {
     eachMovieCautionVariable = this.value;
   });
-
-  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
   checkEachMovieCaution.addEventListener('click', function () {
     if (checkEachMovieCaution.checked) {
@@ -464,8 +438,6 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   /////////////////////
   //Clear input field//
   /////////////////////
-
-  // 
   var eachSozaiArea = document.querySelector('.eachSozai1');
   var arrivalDate = document.querySelector('.arrivalDate');
 
