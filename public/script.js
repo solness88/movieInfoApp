@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   //2. internet distribution of the whole movie
-  var sozai = document.querySelector('.sozaiArea');
   var expireDateArea = document.querySelector('.expireDateArea');
 
   var expirationDateInput = document.querySelector('.expirationDate');
@@ -116,11 +115,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // var upperSubmitButton = document.querySelector('.upperSubmitButton');
   upperSubmitButton.addEventListener('click', function () {
-    sozai.innerHTML = `
+    document.querySelector('.sozaiArea').innerHTML = `
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
       <span style="display:block;margin:0;">${internetAccess}</span>
-
-
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
   });
