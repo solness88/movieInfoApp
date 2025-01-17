@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var specialNotes = document.querySelector('.specialNotes');
   var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
-  //4. pink submit button of the whole movie info, located upperside
-  var upperSubmitButton = document.querySelector('.upperSubmitButton');
-
   //. movie title
   var movieDescriptionText = '';
   var movieDescription = document.querySelector('.movieDescription');
@@ -113,8 +110,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // var upperSubmitButton = document.querySelector('.upperSubmitButton');
-  upperSubmitButton.addEventListener('click', function () {
+  // Click events of upper submit button
+  // Display 1. whether internet access is OK or not, 2. movie special note
+  document.querySelector('.upperSubmitButton').addEventListener('click', function () {
     document.querySelector('.sozaiArea').innerHTML = `
       ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
       <span style="display:block;margin:0;">${internetAccess}</span>
