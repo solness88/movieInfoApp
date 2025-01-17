@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   //1. input prompt text
-  var inputPromptText = document.querySelector('#inputPromptText');
+  // var inputPromptText = document.querySelector('#inputPromptText');
 
   //2. internet distribution of the whole movie
   var sozai = document.querySelector('.sozaiArea');
@@ -85,16 +85,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  //expiration date
-  // expirationDateInput.addEventListener('change', function () {
-  //   var expirationDate = expirationDateInput.value;
-  //   var expireParts = expirationDate.split("-");
-  //   var expireYear = expireParts[0];
-  //   var expireMonth = expireParts[1];
-  //   var expireDay = expireParts[2];
-  //   expireDateFormatted = expireYear + "年" + parseInt(expireMonth, 10) + "月" + parseInt(expireDay, 10) + "日";
-  // });
-
   function nearestExpireDate(){
     
     // if(arrivalDateToProcess){
@@ -111,9 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
         generalExpireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
         }
       }
-    // }else{
-    //   generalExpireDate = '';
-    // }
   };
 
   specialNotes.addEventListener('change', function () {
@@ -144,10 +131,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //assign movie title text to variable
   movieDescription.addEventListener('change', function () {
     movieDescriptionText = this.value;
-
-    // hide inputPromptText when the text is entered
-    // inputPromptText.style.display = 'none'; // 非表示
-
   });
 
   submissionDestination.addEventListener('change', function () {
@@ -253,11 +236,6 @@ document.addEventListener('DOMContentLoaded', function () {
   copyRightInput.addEventListener("input", handleCopyRightInput);
   copyRightInput.addEventListener("change", manipulateArrivalDate);
 
-//   copyRightInput.addEventListener('change', function() {
-//     const selectedValue = this.value;
-//     document.getElementById('usePeriodNotice').textContent = selectedValue;
-// });
-
 function useagePeriodNotice(){
   if (this.value == "RTV"){
     usagePeriod = "RTV:配信から366日";
@@ -274,8 +252,6 @@ function useagePeriodNotice(){
   }else{
     usagePeriod = ""
   }
-  // const selectedValue = this.value;
-  // document.getElementById('usePeriodNotice').textContent = usagePeriod;
   usagePeriodNotice.textContent = usagePeriod;
 }
 
@@ -501,7 +477,7 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
     arrivalDateContainer.style.display = 'none';
 
     // display inputPromptText on the left side when the text is entered
-    inputPromptText.style.display = 'inline';
+    // inputPromptText.style.display = 'inline';
 
     checkEachMovieCaution.checked = false;
     eachMovieCautionContainer.style.display = 'none';
