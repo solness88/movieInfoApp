@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  //1. input prompt text
-  // var inputPromptText = document.querySelector('#inputPromptText');
-
   //2. internet distribution of the whole movie
   var sozai = document.querySelector('.sozaiArea');
   var expireDateArea = document.querySelector('.expireDateArea');
@@ -475,9 +472,6 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
     //clear arrival date value
     arrivalDateContainer.value = '';
     arrivalDateContainer.style.display = 'none';
-
-    // display inputPromptText on the left side when the text is entered
-    // inputPromptText.style.display = 'inline';
 
     checkEachMovieCaution.checked = false;
     eachMovieCautionContainer.style.display = 'none';
