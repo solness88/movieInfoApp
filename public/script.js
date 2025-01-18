@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   //3. movie special notes text
-  var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
   var movieSpecialNotes = '';
   var specialNotes = document.querySelector('.specialNotes');
   var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
@@ -94,6 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   checkSpecialNotes.addEventListener('click', function () {
+    const checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
+
     if (checkSpecialNotes.checked) {
       checkSpecialNotesContainer.style.display = "block";
     } else {
