@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   //3. movie special notes text
-  var movieSpecialNotes = '';
-  var specialNotes = document.querySelector('.specialNotes');
-  var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+  // var movieSpecialNotes = '';
+  // var specialNotes = document.querySelector('.specialNotes');
+  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
 
   //. movie title
   var movieDescriptionText = '';
@@ -88,6 +88,13 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
 
+
+  ////////////////////////////////////////////////////////////////////
+  // special notes for the whole movie, that appears on the top group
+  const specialNotes = document.querySelector('.specialNotes');
+  const checkSpecialNotes = document.querySelector('#checkSpecialNotes');
+  let movieSpecialNotes = '';
+
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
   });
@@ -103,6 +110,8 @@ document.addEventListener('DOMContentLoaded', function () {
       specialNotes.value = '';
     }
   });
+  ////////////////////////////////////////////////////////////////////
+  
 
   // Click events of upper submit button
   // Display 1. whether internet access is OK or not, 2. movie special note
