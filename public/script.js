@@ -1,14 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  //2. internet distribution of the whole movie
-  var expireDateArea = document.querySelector('.expireDateArea');
-
-  var expirationDateInput = document.querySelector('.expirationDate');
-  var expireDateFormatted = '';
-  
-  var generalExpireDate = '';
-  var generalExpireDateNotice = document.getElementById('generalExpireDate');
-
   //3. movie special notes text
   var checkSpecialNotesContainer = document.querySelector('#checkSpecialNotesContainer');
   var movieSpecialNotes = '';
@@ -69,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // variables for expireDate, default value is "none"
   var expireDate = '';
   var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
-  var internetAccess = '全編インターネットＯＫ';
 
-  // //radio button asking whether internet distribution availability for whole edited movie
+  //radio button asking whether internet distribution availability for whole edited movie
+  let internetAccess = '全編インターネットＯＫ';
   upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
     upperRadioButtonInternet.addEventListener('change', function () {
       internetAccess = this.value;
@@ -83,18 +74,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // if(arrivalDateToProcess){
       if(expirationDate == '' || expirationDate > arrivalDateToProcess){
         expirationDate = arrivalDateToProcess;
-
         if(expirationDate){
+
         // get input data of arrival date, assign to the variable
         var year = expirationDate.getFullYear();
 
         //Add 1 because "month" starts with 0
         var month = expirationDate.getMonth() + 1;
         var day = expirationDate.getDate();
-        generalExpireDate = year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+
+        return year + "年" + parseInt(month, 10) + "月" + parseInt(day, 10) + "日";
+
         }
       }
-  };
+    };
 
   specialNotes.addEventListener('change', function () {
     movieSpecialNotes = this.value;
@@ -114,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Display 1. whether internet access is OK or not, 2. movie special note
   document.querySelector('.upperSubmitButton').addEventListener('click', function () {
     document.querySelector('.sozaiArea').innerHTML = `
-      ${expireDateFormatted ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${expireDateFormatted}以降使用禁止</span>` : ''}
       <span style="display:block;margin:0;">${internetAccess}</span>
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
@@ -330,7 +322,6 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
   }
 
   arrivalDateContainer.addEventListener('change', manipulateArrivalDate);
-  // arrivalDateContainer.addEventListener('change', nearestExpireDate);arrivalDateToProcess
 
   ///////////////////////////////////////////////////////
   //Check whether "must courtesy" or not for each movie//
@@ -496,10 +487,9 @@ copyRightInput.addEventListener("change", useagePeriodNotice);
 
     //set the new div element to the variable "eachSozaiArea" 
     eachSozaiArea = document.querySelector('.eachSozai' + counter);
-    nearestExpireDate();
 
-
-    expireDateArea.innerHTML = `
+    let generalExpireDate = nearestExpireDate();
+    document.querySelector('.expireDateArea').innerHTML = `
       ${generalExpireDate ? `<span style="display:inline; margin:0;font-family: sans-serif; font-size:1em;">${generalExpireDate}以降使用禁止</span>` : '使用期限なし'}
     `
   });
