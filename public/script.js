@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  //3. movie special notes text
-  // var movieSpecialNotes = '';
-  // var specialNotes = document.querySelector('.specialNotes');
-  // var checkSpecialNotes = document.querySelector('#checkSpecialNotes');
-
   //. movie title
   var movieDescriptionText = '';
   var movieDescription = document.querySelector('.movieDescription');
@@ -61,12 +56,50 @@ document.addEventListener('DOMContentLoaded', function () {
   var upperRadioButtonsInternet = document.querySelectorAll('input[type="radio"][name="upperRadioButtonsInternet"]');
 
   //radio button asking whether internet distribution availability for whole edited movie
-  let internetAccess = '全編インターネットＯＫ';
-  upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
-    upperRadioButtonInternet.addEventListener('change', function () {
-      internetAccess = this.value;
-    });
-  });
+  // let internetAccess = '全編インターネットＯＫ';
+  // upperRadioButtonsInternet.forEach(function (upperRadioButtonInternet) {
+  //   upperRadioButtonInternet.addEventListener('change', function () {
+  //     internetAccess = this.value;
+  //   });
+  // });
+
+
+
+
+
+
+
+  class InternetAccess {
+    constructor() {
+      this.accessType = '全編インターネットＯＫ';
+      this.initEventListeners();
+    }
+  
+    initEventListeners() {
+      const upperRadioButtonsInternet = document.querySelectorAll('input[name="upperRadioButtonsInternet"]');
+      upperRadioButtonsInternet.forEach((upperRadioButtonInternet) => {
+        upperRadioButtonInternet.addEventListener('change', () => {
+          this.accessType = upperRadioButtonInternet.value;
+        });
+      });
+    }
+  
+    getAccessType() {
+      return this.accessType;
+    }
+  }
+  
+  var internetAccessManager = new InternetAccess();
+
+
+
+
+
+
+
+
+
+
 
   function nearestExpireDate(){
     
@@ -111,16 +144,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   ////////////////////////////////////////////////////////////////////
-  
+
 
   // Click events of upper submit button
   // Display 1. whether internet access is OK or not, 2. movie special note
   document.querySelector('.upperSubmitButton').addEventListener('click', function () {
+    currentAccess = internetAccessManager.getAccessType();
     document.querySelector('.sozaiArea').innerHTML = `
-      <span style="display:block;margin:0;">${internetAccess}</span>
+      <span style="display:block;margin:0;">${currentAccess}</span>
       <span style="display:block;margin:0;">${movieSpecialNotes}</span>
      `;
   });
+
+
+
+
+
+  
+
+
+
+
+
+
 
   //assign movie title text to variable
   movieDescription.addEventListener('change', function () {
